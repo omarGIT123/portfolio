@@ -19,15 +19,12 @@ $(document).ready(function () {
       event.preventDefault();
 
       var hash = this.hash;
-
+      console.log("Scrolling to : " + hash);
       $("html, body").animate(
         {
           scrollTop: $(hash).offset().top,
         },
-        700,
-        function () {
-          window.location.hash = hash;
-        }
+        700
       );
     }
   });
