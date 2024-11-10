@@ -230,3 +230,21 @@ document
       }
     );
   });
+
+// Ensure the script runs after the DOM is fully loaded
+document.addEventListener("DOMContentLoaded", function () {
+  // Add a new history state when the modal is shown
+  $("#projectModal").on("show.bs.modal", function () {
+    history.pushState(null, null, location.href);
+  });
+
+  // Detect back button press to close the modal if it's open
+  window.addEventListener("popstate", function () {
+    if ($("#projectModal").hasClass("show")) {
+      // Check if modal is open
+      $("#projectModal").modal("hide"); // Close the modal
+    } else {
+      history.back(); // Navigate back if the modal is already closed
+    }
+  });
+});
