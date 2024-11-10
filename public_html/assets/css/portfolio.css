@@ -12060,6 +12060,45 @@ pre .code {
 #projectDetailsModal .feature-list i {
   color: #4caf50;
 }
+/* Make the button full width, with content on the left */
+.btn-custom {
+  background-color: #dc3545; /* Red color */
+  color: white; /* White text */
+  border: none; /* Remove border */
+  padding: 10px 15px; /* Add padding for better spacing */
+  display: flex; /* Use flexbox to align items */
+  align-items: center; /* Vertically center the icon and text */
+  justify-content: flex-start; /* Align content to the left */
+  width: 100%; /* Make button full width */
+  text-align: left; /* Ensure text aligns to the left */
+  cursor: pointer; /* Pointer cursor for clickability */
+}
+
+/* Button Hover Effect */
+.btn-custom:hover {
+  background-color: #6c757d; /* Gray color on hover */
+  color: white; /* Keep text white */
+}
+
+/* Dark Mode Styles */
+@media (prefers-color-scheme: dark) {
+  .btn-custom {
+    background-color: #dc3545; /* Keep red in dark mode */
+    color: white; /* Ensure the text remains white */
+  }
+
+  .btn-custom:hover {
+    background-color: #6c757d; /* Gray color on hover in dark mode */
+    color: white; /* Keep the text white */
+  }
+}
+
+/* Make sure the button stays aligned to the left within the modal */
+.modal-footer {
+  display: flex;
+  justify-content: flex-start; /* Align the button to the left */
+  width: 100%;
+}
 
 @media (max-width: 991.98px) {
   .contact {
