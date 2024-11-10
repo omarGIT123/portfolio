@@ -248,16 +248,3 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
-
-document.addEventListener("DOMContentLoaded", function () {
-  const navbar = document.querySelector("#navbarSupportedContent");
-  const navLinks = document.querySelector(".nav-link");
-
-  navLinks.forEach((link) => {
-    link.addEventListener("click", function () {
-      if (navbar.classList.contains("show")) {
-        $(".navbar-collapse").collapse("hide");
-      }
-    });
-  });
-});
