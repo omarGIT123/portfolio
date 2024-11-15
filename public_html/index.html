@@ -1090,33 +1090,31 @@ well as other tools for DevOps such as bitbucket.</P>
 
         <!-- History & Adaptive Learning Section -->
         <div class='section history-learning'>
-            <div class='section-header'>
-                <i class='fas fa-database'></i>
-                <h2>History & Adaptive Learning</h2>
-            </div>
-            <p>SynAI leverages a history-based approach to improve its suggestions over time. By storing user interactions and analyzing their preferences, the AI becomes smarter and more personalized with each use.</p>
-            <ul class='component-list'>
-                <li><i class='fas fa-check-circle'></i> <strong>Personalized Suggestions:</strong> Uses historical data to tailor content recommendations based on individual writing habits.</li>
-                <li><i class='fas fa-check-circle'></i> <strong>Behavior Analysis:</strong> Tracks common themes, style preferences, and frequently used words to suggest relevant improvements.</li>
-                <li><i class='fas fa-check-circle'></i> <strong>Data Privacy:</strong> Ensures all stored history is encrypted and accessible only to the user.</li>
-            </ul>
-            <p>This feature not only enhances productivity but also allows the AI to feel like a personal writing assistant, evolving alongside the user.</p>
-        </div>
+    <div class='section-header'>
+        <i class='fas fa-database'></i>
+        <h2>History & Adaptive Learning</h2>
+    </div>
+    <p>SynAI employs an advanced adaptive learning mechanism through two key functions:</p>
+    <ul class='component-list'>
+        <li><i class='fas fa-check-circle'></i> <strong>Pattern Recognition:</strong> 
+            The system analyzes existing history messages (a fixed set of tokens stored in the database) to extract user-specific writing patterns, habits, and preferences. It then uses this analysis to generate tailored content suggestions.
+        </li>
+        <li><i class='fas fa-check-circle'></i> <strong>Dynamic History Management:</strong> 
+            Each new user input is stored in the history, overriding the earliest data point in the database. This ensures the system remains up-to-date without bloating the storage, maintaining a relevant dataset for analysis.
+        </li>
+    </ul>
+    <p>This dual approach allows SynAI to provide increasingly precise recommendations while maintaining efficiency and adaptability. Over time, the AI evolves into a truly personalized writing assistant that adapts to the user's style and needs.</p>
+</div>
+
 
         <!-- Workflow Section -->
-        <div class='section workflow'>
-            <div class='section-header'>
-                <i class='fas fa-sync-alt'></i>
-                <h2>How It Works</h2>
-            </div>
-            <p>The process of using SynAI is straightforward:</p>
-            <ul class='workflow-steps'>
-                <li><i class='fas fa-arrow-right'></i> <strong>Text Selection:</strong> Highlight a section of text within Google Docs.</li>
-                <li><i class='fas fa-arrow-right'></i> <strong>AI Activation:</strong> The AI is automatically triggered to provide suggestions or rephrased content.</li>
-                <li><i class='fas fa-arrow-right'></i> <strong>History Storage:</strong> User interactions and selected suggestions are stored securely for future use.</li>
-                <li><i class='fas fa-arrow-right'></i> <strong>Adaptive Learning:</strong> Over time, suggestions become more personalized and context-aware based on the stored history.</li>
-            </ul>
-        </div>
+        <ul class='workflow-steps'>
+    <li><i class='fas fa-arrow-right'></i> <strong>Text Selection:</strong> Highlight a section of text within Google Docs.</li>
+    <li><i class='fas fa-arrow-right'></i> <strong>AI Activation:</strong> The AI is automatically triggered to analyze the selected content and provide suggestions based on user habits.</li>
+    <li><i class='fas fa-arrow-right'></i> <strong>Pattern Extraction:</strong> SynAI uses stored history to recognize writing patterns, extracting habits to tailor suggestions dynamically.</li>
+    <li><i class='fas fa-arrow-right'></i> <strong>Dynamic History Update:</strong> The user's latest input is saved to the history, replacing the earliest data point, ensuring that only the most relevant and recent information is retained for future analysis.</li>
+</ul>
+
 
         <!-- Learning Outcomes Section -->
         <div class='section learning-outcomes'>
