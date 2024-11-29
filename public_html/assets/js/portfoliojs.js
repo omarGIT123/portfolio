@@ -270,7 +270,9 @@ if (hoverIcon) {
     if (robotContainer.style.display === "none") {
       robotContainer.style.display = "block"; // Show the robot
       chatBox.style.display = "block";
-      document.querySelector(".message-bubble").style.display = "block";
+      if (document.querySelector(".message-bubble").childElementCount > 0) {
+        document.querySelector(".message-bubble").style.display = "block";
+      }
     } else {
       robotContainer.style.display = "none"; // Hide the robot
       chatBox.style.display = "none"; // Hide the chat box
