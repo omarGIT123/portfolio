@@ -124,10 +124,16 @@ document.getElementById("send-message").addEventListener("click", async () => {
     for (const item of response) {
       console.log(item);
       const section = document.getElementById(item.section.toLowerCase());
+
       if (section) {
+        // Scroll to the section smoothly
         section.scrollIntoView({ behavior: "smooth", block: "start" });
+
+        // Wait for the scroll to complete (you can adjust the duration based on your scroll speed)
+        await delay(1300); // Delay based on scroll speed, adjust if needed
       }
-      delay(1300);
+
+      // Now find and click the card after scrolling is done
       const targetCard = document.querySelector(`[data-title="${item.card}"]`);
       if (targetCard) {
         console.log(targetCard); // Check if the card is found
@@ -135,9 +141,14 @@ document.getElementById("send-message").addEventListener("click", async () => {
       } else {
         console.error("Card with the specified title not found");
       }
-      await typeMessage(bubbleMessage, item.information);
-      delay(1000);
 
+      // Type the message after clicking the card
+      await typeMessage(bubbleMessage, item.information);
+
+      // Additional delay before going back
+      await delay(1000);
+
+      // Handle the 'Go Back' button
       if (targetCard) {
         const goBackButton = document.querySelector(
           '#projectModal [data-dismiss="modal"]'
@@ -148,7 +159,9 @@ document.getElementById("send-message").addEventListener("click", async () => {
           console.error("Go Back button not found");
         }
       }
-      delay(1000);
+
+      // Wait before processing the next item
+      await delay(1000);
     }
 
     // Now execute the code after all typing is done
