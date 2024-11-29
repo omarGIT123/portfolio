@@ -245,3 +245,38 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+// Close chat box
+function closeChatBox() {
+  console.log("Close button clicked");
+  document.getElementById("chat-messages").style.display = "none";
+  document.getElementById("close-m").style.display = "none";
+  document.getElementById("open-m").style.display = "block";
+}
+
+// Open chat box (if needed)
+function openChatBox() {
+  document.getElementById("chat-messages").style.display = "block";
+  document.getElementById("open-m").style.display = "none";
+  document.getElementById("close-m").style.display = "block";
+}
+
+const hoverIcon = document.getElementById("hover-icon");
+if (hoverIcon) {
+  hoverIcon.addEventListener("click", function () {
+    const robotContainer = document.getElementById("robot-container");
+    const chatBox = document.getElementById("robot-chat-box");
+
+    // Toggle the visibility of the robot and chat box
+    if (robotContainer.style.display === "none") {
+      robotContainer.style.display = "block"; // Show the robot
+      chatBox.style.display = "block";
+      document.querySelector(".message-bubble").style.display = "block";
+    } else {
+      robotContainer.style.display = "none"; // Hide the robot
+      chatBox.style.display = "none"; // Hide the chat box
+      document.querySelector(".message-bubble").style.display = "none";
+    }
+  });
+} else {
+  console.error("Hover icon not found!");
+}

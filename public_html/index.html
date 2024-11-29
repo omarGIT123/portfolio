@@ -372,7 +372,7 @@ well as other tools for DevOps such as bitbucket.</P>
                                 <span class="badge badge-info">Azure studio</span>
                                 <span class="badge badge-info">SQL</span>
                             </div>
-                            <button class="btn btn-primary mt-3 view-details" data-title="Fine-tuning GPT 3.5 turbo" data-description=" <div class='container'>
+                            <button class="btn btn-primary mt-3 view-details" data-title="Fine-tuning gpt for SQL generation" data-description=" <div class='container'>
     <!-- SQL Synthetic Data Generation Pipeline Section -->
     <div class='section' id='sql-pipeline'>
         <div class='section-header'>
@@ -945,7 +945,7 @@ well as other tools for DevOps such as bitbucket.</P>
                                 <span class="badge badge-info">OCR</span>
                                 <span class="badge badge-info">Flutter</span>
                             </div>
-                            <button class="btn btn-primary mt-3 view-details" data-title="Tunisian ID Card OCR System with Flutter & Python" data-description="<div class='project-modal-content'>
+                            <button class="btn btn-primary mt-3 view-details" data-title="Tunisian ID Card OCR System" data-description="<div class='project-modal-content'>
     <div class='container'>
         <!-- Project Overview Section -->
         <div class='section' id='project-overview'>
@@ -1080,7 +1080,7 @@ well as other tools for DevOps such as bitbucket.</P>
                                 <span class="badge badge-info">Python</span>
                                 <span class="badge badge-info">LLM</span>
                             </div>
-                            <button class="btn btn-primary mt-3 view-details" data-title="A google docs extension for writing assistance" data-description="<div class='project-modal-content'>
+                            <button class="btn btn-primary mt-3 view-details" data-title="SynAI Writing Assistant" data-description="<div class='project-modal-content'>
     <div class='container'>
 
         <!-- Project Overview Section -->
@@ -1229,13 +1229,13 @@ well as other tools for DevOps such as bitbucket.</P>
 
 
 <!-- Full-Page Modal Structure -->
-<div class="modal fade" id="projectModal" tabindex="-1" role="dialog" aria-labelledby="projectModalLabel" aria-hidden="true">
+<div class="modal fade" id="projectModal" tabindex="-1" role="dialog" aria-labelledby="projectModalLabel" >
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="projectModalLabel"></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <span >&times;</span>
                 </button>
             </div>
             <div class="modal-body">
@@ -1319,7 +1319,57 @@ well as other tools for DevOps such as bitbucket.</P>
             </div>
 
         </div>
+         <!-- Import Map for three.js -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.150.1/examples/jsm/"
+      }
+    }
+  </script>
+     <!-- Hover icon to trigger robot -->
+ <div id="hover-icon" class="hover-icon">
+  <img src="assets/imgs/robot.png" alt="AI Icon" width="50" height="50" />
+</div>
+
+  <!-- 3D Robot Container -->
+  <!-- Add this container to hold the 3D robot -->
+<div id="robot-container" style="position: fixed; top: 50%; left: 80%; transform: translate(-50%, -50%); z-index: 9998; pointer-events: none;">
+  <div id="container"></div> <!-- This is where your Three.js renderer will go -->
+</div>
+<div id="message-bubble" class="message-bubble">
+</div>
+
+ <!-- Chat Box -->
+<div id="robot-chat-box" class="robot-chat-box">
+  <div class="chat-header">
+    <span class="chat-title">Chat with SynAI</span>
+     <!-- Close button (down arrow) -->
+  <button id="close-m" class="close-btn" onclick="closeChatBox()">
+    <i class="ti-angle-double-down"></i>
+  </button>
+  <!-- Open button (up arrow) -->
+  <button id="open-m" class="open-btn" onclick="openChatBox()">
+    <i class="ti-angle-double-up"></i>
+  </div>
+  <div class="chat-body">
+    <div id="chat-messages" class="chat-messages">
+      <!-- Chat messages will dynamically appear here -->
     </div>
+  </div>
+  <div id= "chat-field" class="chat-footer">
+    <input 
+      type="text" 
+      id="user-message" 
+      class="chat-input" 
+      placeholder="Type your message here..." 
+      aria-label="Type your message"
+    />
+    <button id="send-message" class="send-btn">Send</button>
+  </div>
+</div>
+
     <footer class="footer py-3">
         <div class="container">
             
@@ -1339,8 +1389,8 @@ well as other tools for DevOps such as bitbucket.</P>
 
 <!-- portfolio js (Your custom script) -->
 <script src="assets/js/portfoliojs.js"></script>
-
-
+<script type="module" src="assets/js/robot.js"></script>
+<script type="module" src="assets/js/robot.js"></script>
 
 
 </body>
