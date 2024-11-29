@@ -127,7 +127,7 @@ document.getElementById("send-message").addEventListener("click", async () => {
       if (section) {
         section.scrollIntoView({ behavior: "smooth", block: "start" });
       }
-      delay(800);
+      delay(1300);
       const targetCard = document.querySelector(`[data-title="${item.card}"]`);
       if (targetCard) {
         console.log(targetCard); // Check if the card is found
@@ -136,7 +136,7 @@ document.getElementById("send-message").addEventListener("click", async () => {
         console.error("Card with the specified title not found");
       }
       await typeMessage(bubbleMessage, item.information);
-      delay(800);
+      delay(1000);
 
       if (targetCard) {
         const goBackButton = document.querySelector(
@@ -148,7 +148,7 @@ document.getElementById("send-message").addEventListener("click", async () => {
           console.error("Go Back button not found");
         }
       }
-      delay(500);
+      delay(1000);
     }
 
     // Now execute the code after all typing is done
