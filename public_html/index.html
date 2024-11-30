@@ -14,7 +14,12 @@
 	<link rel="stylesheet" href="assets/css/portfolio.css">
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
-    <header class="header">
+     <div id="loading-screen">
+        <div class="loader"></div>
+        <p>Loading...</p>
+    </div>
+      <div id="overlay"></div>
+    <header id="header-page" class="header">
         <div class="container">
             <ul class="social-icons pt-3">
                 <li class="social-item"><a class="social-link text-light" href="https://www.facebook.com/omar.bradai.3/"  target="_blank"><i class="ti-facebook" aria-hidden="true"></i></a></li>
@@ -38,7 +43,7 @@
             </div>
         </div>
     </header>
-    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white" data-spy="affix" data-offset-top="510">
+    <nav id="navar-page" class="navbar sticky-top navbar-expand-lg navbar-light bg-white" data-spy="affix" data-offset-top="510">
     <div class="container">
         <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -74,7 +79,7 @@
     </div>
 </nav>
 
-    <div class="container-fluid">
+    <div id="fluid-page" class="container-fluid">
         <div id="about" class="row about-section">
             <div class="col-lg-4 about-card">
                 <h3 class="font-weight-light">Who am I ?</h3>

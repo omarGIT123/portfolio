@@ -196,3 +196,8 @@ hoverIcon &&
         (t.style.display = "none"),
         (document.querySelector(".message-bubble").style.display = "none"));
   });
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.getElementById("loading-screen").style.display = "none"; // Hide spinner after 5 seconds
+  }, 3000); // 5000 milliseconds = 5 seconds
+});

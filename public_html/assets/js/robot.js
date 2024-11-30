@@ -85,27 +85,38 @@ async function getResponse(e) {
 }
 
 async function showGreetingBubble() {
+  await delay(2000);
   document.getElementById("user-message").disabled = true;
   document.getElementById("send-message").disabled = true;
   const e = document.getElementById("message-bubble");
   const t = document.createElement("div");
   t.className = "bubble";
-  t.textContent = "Hello! Hello!";
+  t.textContent = "Ahum..ahum...";
   e.appendChild(t);
   e.style.display = "block";
-  await delay(400);
+  await delay(1000);
+  let count_highlight = 0;
   const n =
     `Hello and welcome to Omar Bradai's portfolio! My name is SynAI-P-V2, also known as Syn, and I am the manager of this portfolio.
 If you look closely at the bottom, you'll find a chat field. Feel free to ask me anything, and I'll do my best to provide the information you're looking for.
 Please note that I am currently running on a free server, so don't be surprised if I stop working unexpectedly. :)
-PS: If you'd like to make me disappear, just click the floating icon at the bottom right. Click it again when you want to ask me anything.`.split(
+PS: If you'd like to make me disappear, just click on the floating icon at the bottom right. Click on it again when you want to ask me anything.`.split(
       /(?<=[.!?])\s+/
     );
   const o = [];
-  for (let e = 0; e < n.length; e += 3) o.push(n.slice(e, e + 3).join(" "));
+  for (let e = 0; e < n.length; e += 1) o.push(n.slice(e, e + 1).join(" "));
   for (const e of o) {
+    if (count_highlight == 2) {
+      highlightElements(1);
+    } else if (count_highlight == 5) {
+      highlightElements(2);
+    }
     await typeMessage(t, e);
-    await delay(1000);
+    count_highlight++;
+    if (count_highlight >= o.length) {
+      removeFocus();
+    }
+    await delay(500);
   }
   setTimeout(() => {
     e.removeChild(t);
@@ -219,3 +230,33 @@ document.getElementById("send-message").addEventListener("click", async () => {
 });
 
 window.addEventListener("load", showGreetingBubble);
+
+function highlightElements(n) {
+  // Show the dark overlay initially
+  document.getElementById("overlay").style.display = "block";
+
+  // Remove 'focused' class from all elements first
+  document
+    .querySelectorAll(".hover-icon, .robot-chat-box")
+    .forEach((el) => el.classList.remove("focused"));
+
+  // Based on the value of 'n', add the 'focused' class to the correct element
+  if (n === 1) {
+    // Highlight the chat box
+    document.querySelector(".robot-chat-box").classList.add("focused");
+  } else if (n === 2) {
+    // Highlight the icon
+    document.querySelector(".hover-icon").classList.add("focused");
+  }
+}
+
+// Function to remove focus
+function removeFocus() {
+  // Remove 'focused' class from all elements
+  document
+    .querySelectorAll(".hover-icon, .robot-chat-box")
+    .forEach((el) => el.classList.remove("focused"));
+
+  // Optionally hide the overlay as well
+  document.getElementById("overlay").style.display = "none";
+}
