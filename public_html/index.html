@@ -1355,6 +1355,7 @@ well as other tools for DevOps such as bitbucket.</P>
 <div id="robot-chat-box" class="robot-chat-box">
   <div class="chat-header">
     <span class="chat-title">Chat with SynAI</span>
+   
      <!-- Close button (down arrow) -->
   <button id="close-m" class="close-btn" onclick="closeChatBox()">
     <i class="ti-angle-double-down"></i>
@@ -1373,10 +1374,25 @@ well as other tools for DevOps such as bitbucket.</P>
       type="text" 
       id="user-message" 
       class="chat-input" 
-      placeholder="Type your message here..." 
+      placeholder="E.g : Who is omar?" 
       aria-label="Type your message"
     />
-    <button id="send-message" class="send-btn">Send</button>
+    <div id="play" class="play-button"> 
+        <button id="send-message" class="send-btn">Send</button>
+     <button id="stop-message" class="stop-btn" style="display: none;">Stop</button>
+    </div>
+    <!-- Suggestions Button -->
+    <button id="suggestions-btn" class="suggestions-btn">Suggestions</button>
+    
+    <!-- Suggested Messages List (Initially hidden) -->
+    <div id="suggestions-list" class="suggestions-list" style="display: none;">
+      <ul>
+        <li class="suggestion-item" data-suggestion="Who is Omar?">Who is Omar?</li>
+        <li class="suggestion-item" data-suggestion="ell me about SynAI project.">Tell me about SynAI project.</li>
+        <li class="suggestion-item" data-suggestion="Where does Omar currently work?">Where does Omar currently work?</li>
+        <li class="suggestion-item" data-suggestion="Walk me through the resume?">Walk me through the resume?</li>
+      </ul>
+    </div>
   </div>
 </div>
 

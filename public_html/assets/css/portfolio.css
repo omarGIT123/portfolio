@@ -10879,9 +10879,11 @@ pre .code {
   transform: scale(2);
   transition: transform 0.3s ease;
 }
+
 .hover-icon:hover {
   transform: scale(1.5);
 }
+
 .robot-container {
   position: fixed;
   top: 50%;
@@ -10894,6 +10896,7 @@ pre .code {
   pointer-events: none;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
+
 .robot-chat-box {
   position: fixed;
   bottom: 20px;
@@ -10903,7 +10906,7 @@ pre .code {
   padding: 20px;
   border-radius: 25px;
   z-index: 9996;
-  max-width: 400px;
+  max-width: 500px;
   width: 90%;
   font-family: "Roboto", sans-serif;
   color: #333;
@@ -10911,10 +10914,12 @@ pre .code {
   transition: all 0.3s ease-in-out;
   border: 1px solid #e0e0e0;
 }
+
 .robot-chat-box:hover {
   transform: translateX(-50%) scale(1.02);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
+
 .robot-chat-box .chat-header {
   display: flex;
   justify-content: space-between;
@@ -10923,12 +10928,14 @@ pre .code {
   margin-bottom: 15px;
   padding-bottom: 10px;
 }
+
 .robot-chat-box .chat-title {
   font-size: 1.3em;
   font-weight: bold;
   color: #d32f2f;
   letter-spacing: 1px;
 }
+
 .close-btn {
   display: block;
   border: transparent;
@@ -10940,6 +10947,7 @@ pre .code {
   cursor: pointer;
   transition: all 0.3s ease;
 }
+
 .open-btn {
   border: transparent;
   background-color: transparent;
@@ -10951,26 +10959,31 @@ pre .code {
   cursor: pointer;
   transition: all 0.1s ease;
 }
+
 .close-btn:hover {
   font-size: 22px;
   transition: all 0.1s ease;
 }
+
 .open-btn:hover {
   font-size: 22px;
   transition: all 0.1s ease;
 }
+
 .close-btn:active {
   background-color: transparent;
   border: transparent;
   font-size: 22px;
   outline: none;
 }
+
 .open-btn:active {
   background-color: transparent;
   border: transparent;
   font-size: 22px;
   outline: none;
 }
+
 .chat-messages {
   max-height: 300px;
   overflow-y: auto;
@@ -10982,6 +10995,7 @@ pre .code {
   color: #555;
   margin-bottom: 15px;
 }
+
 .chat-messages p {
   margin: 10px 0;
   padding: 12px;
@@ -10993,23 +11007,28 @@ pre .code {
   line-height: 1.5;
   font-size: 14px;
 }
+
 .chat-messages p.user-message {
   background-color: #e8f5e9;
   align-self: flex-end;
 }
+
 .chat-messages::-webkit-scrollbar {
   width: 8px;
 }
+
 .chat-messages::-webkit-scrollbar-thumb {
   background-color: #d32f2f;
   border-radius: 5px;
 }
+
 #chat-field {
   display: flex;
   align-items: center;
   gap: 10px;
   width: 100%;
 }
+
 .chat-input {
   flex: 1;
   padding: 12px;
@@ -11021,10 +11040,20 @@ pre .code {
   outline: none;
   transition: border-color 0.3s ease;
 }
+
 .chat-input:focus {
   border-color: #b71c1c;
   box-shadow: 0 0 5px rgba(183, 28, 28, 0.5);
 }
+
+.play-button {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
 .send-btn {
   padding: 12px 20px;
   background-color: #d32f2f;
@@ -11036,10 +11065,37 @@ pre .code {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
 }
+
+.stop-btn {
+  padding: 12px 20px;
+  background-color: #d32f2f;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
 .send-btn:hover {
-  background-color: #b71c1c;
+  background-color: #159c9c;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
 }
+
+.send-btn:focus {
+  outline: none;
+}
+
+.stop-btn:hover {
+  background-color: #159c9c;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.stop-btn:focus {
+  outline: none;
+}
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -11050,6 +11106,7 @@ pre .code {
     transform: translateY(0);
   }
 }
+
 .message-bubble {
   position: fixed;
   display: none;
@@ -11069,6 +11126,7 @@ pre .code {
   word-wrap: break-word;
   line-height: 1.4;
 }
+
 .message-bubble::after {
   display: none;
   content: "";
@@ -11082,7 +11140,7 @@ pre .code {
   border-right: 10px solid transparent;
   border-top: 10px solid #3498db;
 }
-/* Loading Screen Styles */
+
 #loading-screen {
   position: fixed;
   top: 0;
@@ -11120,29 +11178,153 @@ pre .code {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7); /* Semi-transparent dark background */
-  z-index: 9997; /* Behind the focused element */
-  display: none; /* Initially hidden */
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 9997;
+  display: none;
 }
 
-/* Focused element effect */
 .hover-icon.focused {
   color: white;
-  z-index: 9998; /* Illuminate effect */
+  z-index: 9998;
 }
 
-/* Optional: Transition effect for smoothness */
 .hover-icon,
 #overlay {
   transition: all 0.9s ease;
 }
+
 .robot-chat-box.focused {
   color: white;
-  box-shadow: 0 0 15px 5px rgba(255, 0, 0, 0.8); /* Red color with some opacity */
-  z-index: 9998; /* Illuminate effect */
+  box-shadow: 0 0 15px 5px rgba(255, 0, 0, 0.8);
+  z-index: 9998;
 }
 
-.hover-icon,
-#overlay {
-  transition: all 0.9s ease;
+.suggestions-btn {
+  padding: 12px 20px;
+  background-color: #d32f2f;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.suggestions-btn:hover {
+  background-color: #159c9c;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.suggestions-btn:focus {
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  .robot-chat-box {
+    bottom: 10px;
+    width: 95%;
+    padding: 15px;
+  }
+
+  .hover-icon {
+    bottom: 20px;
+    right: 20px;
+    transform: scale(1.5);
+  }
+
+  .chat-messages {
+    max-height: 200px;
+    font-size: 12px;
+  }
+
+  .chat-input {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .robot-chat-box {
+    width: 90%;
+    bottom: 5px;
+  }
+
+  .hover-icon {
+    bottom: 10px;
+    right: 10px;
+  }
+
+  .chat-input {
+    font-size: 12px;
+  }
+}
+
+/* Style for the suggestions button */
+.suggestions-btn {
+  padding: 12px 20px;
+  background-color: #d32f2f;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.suggestions-btn:hover {
+  background-color: #159c9c;
+}
+
+/* Style for the suggestions list */
+.suggestions-list {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 200px;
+  max-height: 150px;
+  overflow-y: auto;
+  margin-top: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 100px;
+}
+
+.suggestions-list ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.suggestion-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.suggestion-item:hover {
+  background-color: #f1f1f1;
+}
+/* Style the scrollbar itself */
+.suggestions-list::-webkit-scrollbar {
+  width: 8px; /* Set width of the scrollbar */
+}
+
+/* Style the scrollbar track (the empty part behind the scrollbar) */
+.suggestions-list::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Light background for the track */
+  border-radius: 10px; /* Rounded corners for the track */
+}
+
+/* Style the scrollbar thumb (the draggable part) */
+.suggestions-list::-webkit-scrollbar-thumb {
+  background: #d32f2f; /* Set the thumb color */
+  border-radius: 10px; /* Rounded corners for the thumb */
+}
+
+/* Change thumb color on hover */
+.suggestions-list::-webkit-scrollbar-thumb:hover {
+  background: #159c9c; /* Darker green when hovered */
+}
+.suggestions-btn:focus {
+  outline: none;
 }

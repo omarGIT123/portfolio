@@ -1,7 +1,8 @@
 import * as THREE from "three";
 import { DRACOLoader } from "three/addons/loaders/DRACOLoader.js"; // Import DRACOLoader
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
-
+let isStopped = false;
+let firstVisit = false;
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
   75,
@@ -40,12 +41,30 @@ function animate() {
 function delay(e) {
   return new Promise((t) => setTimeout(t, e));
 }
+async function typeMessage_greet(e, t) {
+  let n = 0;
+  e.textContent = "";
+  return new Promise((o) => {
+    if (firstVisit) return;
+    const a = setInterval(() => {
+      if (firstVisit) return;
+      e.textContent += t.charAt(n);
+      n++;
+      if (n === t.length) {
+        clearInterval(a);
+        o();
+      }
+    }, 60);
+  });
+}
 
 async function typeMessage(e, t) {
   let n = 0;
   e.textContent = "";
   return new Promise((o) => {
+    if (isStopped) return;
     const a = setInterval(() => {
+      if (isStopped) return;
       e.textContent += t.charAt(n);
       n++;
       if (n === t.length) {
@@ -58,15 +77,21 @@ async function typeMessage(e, t) {
 
 async function getResponse(e) {
   const t = new AbortController();
+  const signal = t.signal;
   const n = setTimeout(() => {
     t.abort();
   }, 2e4);
+  if (isStopped) {
+    t.abort();
+    return;
+  }
   try {
+    if (isStopped) return;
     const o = await fetch("https://synai-p.onrender.com/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ input: e }),
-      signal: t.signal,
+      signal: signal,
     });
     clearTimeout(n);
     if (!o.ok) throw new Error(`HTTP error! status: ${o.status}`);
@@ -76,25 +101,33 @@ async function getResponse(e) {
     return e.name === "AbortError"
       ? [
           {
-            information: "Error: The request took too long and was aborted.",
+            information:
+              "Told ya! an error has occurred.. Sadly the server might be getting slow due to inactivity.",
             section: "",
           },
         ]
       : [{ information: `Error: ${e.message}`, section: "" }];
   }
 }
-
 async function showGreetingBubble() {
-  await delay(2000);
+  document.getElementById("suggestions-btn").disabled = true;
   document.getElementById("user-message").disabled = true;
   document.getElementById("send-message").disabled = true;
+  document.getElementById("stop-message").disabled = false;
+  document.getElementById("stop-message").style.display = "block";
+  document.getElementById("send-message").style.display = "none";
+  if (firstVisit) return;
+  await delay(2000);
+  if (firstVisit) return;
   const e = document.getElementById("message-bubble");
   const t = document.createElement("div");
   t.className = "bubble";
   t.textContent = "Ahum..ahum...";
   e.appendChild(t);
   e.style.display = "block";
+  if (firstVisit) return;
   await delay(1000);
+  if (firstVisit) return;
   let count_highlight = 0;
   const n =
     `Hello and welcome to Omar Bradai's portfolio! My name is SynAI-P-V2, also known as Syn, and I am the manager of this portfolio.
@@ -104,26 +137,42 @@ PS: If you'd like to make me disappear, just click on the floating icon at the b
       /(?<=[.!?])\s+/
     );
   const o = [];
-  for (let e = 0; e < n.length; e += 1) o.push(n.slice(e, e + 1).join(" "));
+  for (let e = 0; e < n.length; e += 1) {
+    if (firstVisit) return;
+    o.push(n.slice(e, e + 1).join(" "));
+  }
   for (const e of o) {
+    console.log(count_highlight);
+    if (firstVisit) return;
     if (count_highlight == 2) {
+      console.log("still here");
       highlightElements(1);
     } else if (count_highlight == 5) {
       highlightElements(2);
     }
-    await typeMessage(t, e);
+    await typeMessage_greet(t, e);
     count_highlight++;
     if (count_highlight >= o.length) {
       removeFocus();
     }
+    if (firstVisit) return;
     await delay(500);
+    if (firstVisit) return;
   }
-  setTimeout(() => {
-    e.removeChild(t);
-    e.style.display = "none";
-    document.getElementById("user-message").disabled = false;
-    document.getElementById("send-message").disabled = false;
-  }, 800);
+  if (!firstVisit) {
+    setTimeout(() => {
+      if (firstVisit) return;
+      e.removeChild(t);
+      e.style.display = "none";
+      document.getElementById("user-message").disabled = false;
+      document.getElementById("send-message").disabled = false;
+      document.getElementById("send-message").disabled = true;
+      document.getElementById("suggestions-btn").disabled = false;
+      document.getElementById("stop-message").style.display = "none";
+      document.getElementById("send-message").style.display = "black";
+      firstVisit = false;
+    }, 800);
+  }
 }
 
 // Load the Draco-compressed model
@@ -169,14 +218,18 @@ window.addEventListener("resize", () => {
 });
 
 camera.position.z = 6;
-
 // Send message logic (for the chat)
 document.getElementById("send-message").addEventListener("click", async () => {
+  isStopped = false;
   const e = document.getElementById("user-message").value;
   if (e.trim() !== "" && !document.getElementById("user-message").disabled) {
     const t = document.getElementById("chat-messages");
     document.getElementById("user-message").disabled = true;
     document.getElementById("send-message").disabled = true;
+    document.getElementById("suggestions-btn").disabled = true;
+    document.getElementById("stop-message").disabled = false;
+    document.getElementById("send-message").style.display = "none";
+    document.getElementById("stop-message").style.display = "block";
     const n = document.createElement("div");
     n.className = "user-message";
     n.textContent = "User: " + e + "\n";
@@ -190,63 +243,80 @@ document.getElementById("send-message").addEventListener("click", async () => {
     o.style.display = "block";
 
     const s = await getResponse(e);
-    for (const message of s) {
-      const targetSection = document.getElementById(
-        message.section.toLowerCase()
-      );
-      if (targetSection) {
-        targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
-        await delay(1300);
-      }
-      const card = document.querySelector(`[data-title="${message.card}"]`);
-      if (card) card.click();
+    try {
+      for (const message of s) {
+        const targetSection = document.getElementById(
+          message.section.toLowerCase()
+        );
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
+          await delay(1300);
+        }
+        const card = document.querySelector(`[data-title="${message.card}"]`);
+        if (card) card.click();
 
-      const messageParts = message.information.split(/(?<=[.!?])\s+/);
-      const messageChunks = [];
-      for (let i = 0; i < messageParts.length; i += 3) {
-        messageChunks.push(messageParts.slice(i, i + 3).join(" "));
-      }
+        const messageParts = message.information.split(/(?<=[.!?])\s+/);
+        const messageChunks = [];
+        for (let i = 0; i < messageParts.length; i += 3) {
+          messageChunks.push(messageParts.slice(i, i + 3).join(" "));
+        }
 
-      for (const part of messageChunks) {
-        await typeMessage(a, part);
+        for (const part of messageChunks) {
+          await typeMessage(a, part);
+          await delay(1000);
+        }
+        if (card) {
+          const closeModal = document.querySelector(
+            '#projectModal [data-dismiss="modal"]'
+          );
+          if (closeModal) closeModal.click();
+        }
         await delay(1000);
       }
-      if (card) {
-        const closeModal = document.querySelector(
-          '#projectModal [data-dismiss="modal"]'
-        );
-        if (closeModal) closeModal.click();
-      }
-      await delay(1000);
+    } catch (e) {
+      typeMessage(
+        a,
+        "Told ya! an error has occurred.. Sadly the server might be getting slow due to inactivity."
+      );
     }
-
-    setTimeout(() => {
-      o.removeChild(a);
-      o.style.display = "none";
-      document.getElementById("user-message").disabled = false;
-      document.getElementById("send-message").disabled = false;
-    }, 1000);
+    if (!isStopped) {
+      setTimeout(() => {
+        o.removeChild(a);
+        o.style.display = "none";
+        document.getElementById("user-message").disabled = false;
+        document.getElementById("send-message").disabled = false;
+        document.getElementById("suggestions-btn").disabled = false;
+        document.getElementById("send-message").disabled = true;
+        document.getElementById("send-message").style.display = "block";
+        document.getElementById("stop-message").style.display = "none";
+      }, 1000);
+    }
   }
 });
 
-window.addEventListener("load", showGreetingBubble);
+showGreetingBubble();
 
 function highlightElements(n) {
   // Show the dark overlay initially
   document.getElementById("overlay").style.display = "block";
-
   // Remove 'focused' class from all elements first
   document
     .querySelectorAll(".hover-icon, .robot-chat-box")
     .forEach((el) => el.classList.remove("focused"));
-
+  if (firstVisit) return;
   // Based on the value of 'n', add the 'focused' class to the correct element
   if (n === 1) {
     // Highlight the chat box
     document.querySelector(".robot-chat-box").classList.add("focused");
+    if (firstVisit) {
+      removeFocus();
+    }
   } else if (n === 2) {
     // Highlight the icon
     document.querySelector(".hover-icon").classList.add("focused");
+    if (firstVisit) {
+      removeFocus();
+    }
   }
 }
 
@@ -259,4 +329,58 @@ function removeFocus() {
 
   // Optionally hide the overlay as well
   document.getElementById("overlay").style.display = "none";
+}
+// Show/hide suggestions list
+document.getElementById("suggestions-btn").addEventListener("click", () => {
+  const suggestionsList = document.getElementById("suggestions-list");
+  // Toggle visibility of the suggestions list
+  suggestionsList.style.display =
+    suggestionsList.style.display === "none" ||
+    suggestionsList.style.display === ""
+      ? "block"
+      : "none";
+});
+
+// Handle clicking a suggestion item
+document.querySelectorAll(".suggestion-item").forEach((item) => {
+  item.addEventListener("click", () => {
+    const userMessageInput = document.getElementById("user-message");
+    const selectedMessage = item.getAttribute("data-suggestion");
+
+    // Populate the input with the clicked suggestion
+    userMessageInput.value = selectedMessage;
+
+    // Hide the suggestions list
+    document.getElementById("suggestions-list").style.display = "none";
+  });
+});
+
+// Optional: Close suggestions if user clicks outside
+document.addEventListener("click", (e) => {
+  if (
+    !e.target.closest("#suggestions-btn") &&
+    !e.target.closest("#suggestions-list")
+  ) {
+    document.getElementById("suggestions-list").style.display = "none";
+  }
+});
+
+document.getElementById("stop-message").addEventListener("click", stopTalking);
+function stopTalking() {
+  isStopped = true;
+  firstVisit = true;
+  const bubble = document.getElementById("message-bubble");
+  if (bubble) {
+    bubble.style.display = "none"; // Hide the bubble
+    bubble.innerHTML = ""; // Clear all child elements
+  }
+  document.getElementById("user-message").disabled = false;
+  document.getElementById("send-message").disabled = false;
+  document.getElementById("stop-message").disabled = true;
+  document.getElementById("suggestions-btn").disabled = false;
+  document.getElementById("stop-message").style.display = "none";
+  document.getElementById("send-message").style.display = "block";
+  if (document.getElementById("overlay")) {
+    removeFocus();
+  }
 }
