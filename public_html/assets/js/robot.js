@@ -15,7 +15,7 @@ directionalLight.position.set(10, 0, 25).normalize();
 scene.add(directionalLight);
 
 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 0.7));
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1));
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.getElementById("container").appendChild(renderer.domElement);
 
@@ -169,7 +169,7 @@ PS: If you'd like to make me disappear, just click on the floating icon at the b
       document.getElementById("send-message").disabled = true;
       document.getElementById("suggestions-btn").disabled = false;
       document.getElementById("stop-message").style.display = "none";
-      document.getElementById("send-message").style.display = "black";
+      document.getElementById("send-message").style.display = "block";
       firstVisit = false;
     }, 800);
   }
