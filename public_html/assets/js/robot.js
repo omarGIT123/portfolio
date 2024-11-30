@@ -3,7 +3,9 @@ import { DRACOLoader } from "three/addons/loaders/DRACOLoader.js"; // Import DRA
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 let isStopped = false;
 let firstVisit = false;
-let callCount = 0; 
+let callCount = 0;
+let delayController;
+let activeTimeout = null;
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
   75,
@@ -40,7 +42,20 @@ function animate() {
 }
 
 function delay(e) {
-  return new Promise((t) => setTimeout(t, e));
+  console.log("started delay");
+  return new Promise((resolve, reject) => {
+    const interval = setInterval(() => {
+      if (isStopped) {
+        clearInterval(interval);
+        console.log("blocked delay"); // Clear the interval to stop the delay
+        reject("Stopped"); // Reject with an appropriate message
+      } else {
+        clearInterval(interval);
+        console.log("ended delay");
+        resolve(); // Resolve the promise if not stopped
+      }
+    }, e);
+  });
 }
 async function typeMessage_greet(e, t) {
   let n = 0;
@@ -63,15 +78,35 @@ async function typeMessage(e, t) {
   isTyping = true;
   let n = 0;
   e.textContent = "";
-  return new Promise((o) => {
-    if (isStopped) return;
-    const a = setInterval(() => {
-      if (isStopped) return;
+  console.log("started typing");
+  return new Promise((resolve) => {
+    // Check immediately if stopped before starting
+    if (isStopped) {
+      console.log("stopped typing");
+      e.textContent = "";
+      isTyping = false; // Reset typing state
+      resolve(); // Resolve the promise
+      return;
+    }
+
+    const intervalId = setInterval(() => {
+      if (isStopped) {
+        console.log("stopped typing");
+        e.textContent = ""; // Clear the message
+        clearInterval(intervalId); // Stop the interval
+        isTyping = false; // Reset typing state
+        resolve(); // Resolve the promise early
+        return;
+      }
+
       e.textContent += t.charAt(n);
       n++;
+
       if (n === t.length) {
-        clearInterval(a);
-        o();
+        console.log("ended typing");
+        clearInterval(intervalId); // Stop the interval when done
+        isTyping = false; // Reset typing state
+        resolve(); // Resolve the promise normally
       }
     }, 60);
   });
@@ -225,14 +260,23 @@ camera.position.z = 6;
 document.getElementById("send-message").addEventListener("click", async () => {
   isStopped = false;
   callCount++;
+  if (activeTimeout) {
+    console.log("Time out cleared !");
+    clearTimeout(activeTimeout);
+    activeTimeout = null; // Reset the variable
+  }
   try {
+    const bubble = document.getElementById("message-bubble");
+    if (bubble) {
+      bubble.style.display = "none"; // Hide the bubble
+      bubble.innerHTML = ""; // Clear all child elements
+    }
     const e = document.getElementById("user-message").value;
     if (e.trim() !== "" && !document.getElementById("user-message").disabled) {
       const t = document.getElementById("chat-messages");
       document.getElementById("user-message").disabled = true;
       document.getElementById("send-message").disabled = true;
       document.getElementById("suggestions-btn").disabled = true;
-      document.getElementById("stop-message").disabled = false;
       document.getElementById("send-message").style.display = "none";
       document.getElementById("stop-message").style.display = "block";
       const n = document.createElement("div");
@@ -248,6 +292,7 @@ document.getElementById("send-message").addEventListener("click", async () => {
       o.style.display = "block";
 
       const s = await getResponse(e);
+      document.getElementById("stop-message").disabled = false;
       try {
         for (const message of s) {
           const targetSection = document.getElementById(
@@ -258,7 +303,7 @@ document.getElementById("send-message").addEventListener("click", async () => {
               behavior: "smooth",
               block: "start",
             });
-            await delay(1300);
+            if (!isStopped) await delay(1300);
           }
           const card = document.querySelector(`[data-title="${message.card}"]`);
           if (card) card.click();
@@ -270,9 +315,8 @@ document.getElementById("send-message").addEventListener("click", async () => {
           }
 
           for (const part of messageChunks) {
-            await typeMessage(a, part);
-            if(isStopped) return;
-            await delay(300);
+            if (!isStopped) await typeMessage(a, part);
+            if (!isStopped) await delay(500);
           }
           if (card) {
             const closeModal = document.querySelector(
@@ -280,8 +324,7 @@ document.getElementById("send-message").addEventListener("click", async () => {
             );
             if (closeModal) closeModal.click();
           }
-          if(isStopped) return;
-          await delay(300);
+          if (!isStopped) await delay(1000);
         }
       } catch (e) {
         await typeMessage(
@@ -289,20 +332,18 @@ document.getElementById("send-message").addEventListener("click", async () => {
           "Told ya! an error has occurred.. Sadly the server might be getting slow due to inactivity."
         );
       }
-      if (!isStopped && callCount <2) {
-        setTimeout(() => {
-          if (a && o.contains(a)) {
-            o.removeChild(a);
-          }
-          o.style.display = "none";
-          callCount = 0;
-          document.getElementById("user-message").disabled = false;
-          document.getElementById("send-message").disabled = false;
-          document.getElementById("suggestions-btn").disabled = false;
-          document.getElementById("stop-message").disabled = true;
-          document.getElementById("send-message").style.display = "block";
-          document.getElementById("stop-message").style.display = "none";
-        }, 300);
+      if (!isStopped && callCount == 1) {
+        if (a && o.contains(a)) {
+          o.removeChild(a);
+        }
+        o.style.display = "none";
+        callCount = 0;
+        document.getElementById("user-message").disabled = false;
+        document.getElementById("send-message").disabled = false;
+        document.getElementById("suggestions-btn").disabled = false;
+        document.getElementById("stop-message").disabled = true;
+        document.getElementById("send-message").style.display = "block";
+        document.getElementById("stop-message").style.display = "none";
       }
     }
   } catch (e) {
@@ -405,5 +446,6 @@ function stopTalking() {
   if (document.getElementById("overlay")) {
     removeFocus();
   }
-  setTimeout(() => {callCount = 0;},200)
+
+  callCount = 0;
 }
