@@ -81,12 +81,7 @@ async function getResponse(e) {
   const n = setTimeout(() => {
     t.abort();
   }, 2e4);
-  if (isStopped) {
-    t.abort();
-    return;
-  }
   try {
-    if (isStopped) return;
     const o = await fetch("https://synai-p.onrender.com/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -245,6 +240,12 @@ document.getElementById("send-message").addEventListener("click", async () => {
     const s = await getResponse(e);
     try {
       for (const message of s) {
+        if ($("#projectModal").hasClass("show")) {
+          const closeModal = document.querySelector(
+            '#projectModal [data-dismiss="modal"]'
+          );
+          if (closeModal) closeModal.click();
+        }
         const targetSection = document.getElementById(
           message.section.toLowerCase()
         );
@@ -274,7 +275,7 @@ document.getElementById("send-message").addEventListener("click", async () => {
         await delay(1000);
       }
     } catch (e) {
-      typeMessage(
+      await typeMessage(
         a,
         "Told ya! an error has occurred.. Sadly the server might be getting slow due to inactivity."
       );
