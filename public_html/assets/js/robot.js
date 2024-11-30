@@ -3,6 +3,7 @@ import { DRACOLoader } from "three/addons/loaders/DRACOLoader.js"; // Import DRA
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 let isStopped = false;
 let firstVisit = false;
+let callCount = 0; 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
   75,
@@ -223,6 +224,7 @@ camera.position.z = 6;
 // Send message logic (for the chat)
 document.getElementById("send-message").addEventListener("click", async () => {
   isStopped = false;
+  callCount++;
   try {
     const e = document.getElementById("user-message").value;
     if (e.trim() !== "" && !document.getElementById("user-message").disabled) {
@@ -287,12 +289,13 @@ document.getElementById("send-message").addEventListener("click", async () => {
           "Told ya! an error has occurred.. Sadly the server might be getting slow due to inactivity."
         );
       }
-      if (!isStopped && o.childElementCount <2) {
+      if (!isStopped && callCount <2) {
         setTimeout(() => {
           if (a && o.contains(a)) {
             o.removeChild(a);
           }
           o.style.display = "none";
+          callCount = 0;
           document.getElementById("user-message").disabled = false;
           document.getElementById("send-message").disabled = false;
           document.getElementById("suggestions-btn").disabled = false;
