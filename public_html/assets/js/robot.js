@@ -405,4 +405,5 @@ function stopTalking() {
   if (document.getElementById("overlay")) {
     removeFocus();
   }
+  setTimeout(() => {callCount = 0;},200)
 }
