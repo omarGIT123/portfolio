@@ -42,16 +42,16 @@ function animate() {
 }
 
 function delay(e) {
-  console.log("started delay");
+  // console.log("started delay");
   return new Promise((resolve, reject) => {
     const interval = setInterval(() => {
       if (isStopped) {
         clearInterval(interval);
-        console.log("blocked delay"); // Clear the interval to stop the delay
+        // console.log("blocked delay"); // Clear the interval to stop the delay
         reject("Stopped"); // Reject with an appropriate message
       } else {
         clearInterval(interval);
-        console.log("ended delay");
+        // console.log("ended delay");
         resolve(); // Resolve the promise if not stopped
       }
     }, e);
@@ -78,11 +78,11 @@ async function typeMessage(e, t) {
   isTyping = true;
   let n = 0;
   e.textContent = "";
-  console.log("started typing");
+  // console.log("started typing");
   return new Promise((resolve) => {
     // Check immediately if stopped before starting
     if (isStopped) {
-      console.log("stopped typing");
+      // console.log("stopped typing");
       e.textContent = "";
       isTyping = false; // Reset typing state
       resolve(); // Resolve the promise
@@ -91,7 +91,7 @@ async function typeMessage(e, t) {
 
     const intervalId = setInterval(() => {
       if (isStopped) {
-        console.log("stopped typing");
+        // console.log("stopped typing");
         e.textContent = ""; // Clear the message
         clearInterval(intervalId); // Stop the interval
         isTyping = false; // Reset typing state
@@ -103,7 +103,7 @@ async function typeMessage(e, t) {
       n++;
 
       if (n === t.length) {
-        console.log("ended typing");
+        // console.log("ended typing");
         clearInterval(intervalId); // Stop the interval when done
         isTyping = false; // Reset typing state
         resolve(); // Resolve the promise normally
@@ -130,7 +130,7 @@ async function getResponse(e) {
     return (await o.json()).response;
   } catch (e) {
     clearTimeout(n);
-    console.log(e);
+    // console.log(e);
     return e.name === "AbortError"
       ? [
           {
@@ -180,10 +180,10 @@ PS: If you'd like to make me disappear, just click on the floating icon at the b
     o.push(n.slice(e, e + 1).join(" "));
   }
   for (const e of o) {
-    console.log(count_highlight);
+    // console.log(count_highlight);
     if (firstVisit) return;
     if (count_highlight == 2) {
-      console.log("still here");
+      // console.log("still here");
       highlightElements(1);
     } else if (count_highlight == 5) {
       highlightElements(2);
@@ -261,7 +261,7 @@ document.getElementById("send-message").addEventListener("click", async () => {
   isStopped = false;
   callCount++;
   if (activeTimeout) {
-    console.log("Time out cleared !");
+    // console.log("Time out cleared !");
     clearTimeout(activeTimeout);
     activeTimeout = null; // Reset the variable
   }
