@@ -305,7 +305,7 @@ document.getElementById("send-message").addEventListener("click", async () => {
   }
 });
 
-showGreetingBubble();
+if (!firstVisit) showGreetingBubble();
 
 function highlightElements(n) {
   // Show the dark overlay initially
