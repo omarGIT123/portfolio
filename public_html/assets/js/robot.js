@@ -306,7 +306,7 @@ document.getElementById("send-message").addEventListener("click", async () => {
             if (!isStopped) await delay(1300);
           }
           const card = document.querySelector(`[data-title="${message.card}"]`);
-          if (card) card.click();
+          if (card && !isStopped) card.click();
 
           const messageParts = message.information.split(/(?<=[.!?])\s+/);
           const messageChunks = [];
