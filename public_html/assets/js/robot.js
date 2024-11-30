@@ -8,16 +8,14 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   1000
 );
-// Adding some basic lighting to the scene
-const ambientLight = new THREE.AmbientLight(0x808080, 0.5); // Ambient light
-scene.add(ambientLight);
 
 const directionalLight = new THREE.DirectionalLight(0xffffff, 1); // Directional light
-directionalLight.position.set(10, 0, 10).normalize();
+directionalLight.position.set(10, 0, 25).normalize();
 scene.add(directionalLight);
 
 // Make the renderer's background transparent
 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 0.7));
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.getElementById("container").appendChild(renderer.domElement);
 
@@ -30,7 +28,7 @@ loader.load(
   "assets/models/model.glb",
   (gltf) => {
     robot = gltf.scene;
-    robot.scale.set(1, 1, 1);
+    robot.scale.set(0.7, 0.7, 0.7);
     robot.position.set(0, 0, 0);
     scene.add(robot);
 
@@ -44,7 +42,7 @@ loader.load(
       mixer = new THREE.AnimationMixer(robot);
 
       const action = mixer.clipAction(gltf.animations[0]);
-      const action2 = mixer.clipAction(gltf.animations[2]);
+      const action2 = mixer.clipAction(gltf.animations[1]);
       action2.setLoop(THREE.LoopOnce, 0); // Play action2 once
       // action2.clampWhenFinished = true; //
       action2.reset();
@@ -142,11 +140,18 @@ document.getElementById("send-message").addEventListener("click", async () => {
         console.error("Card with the specified title not found");
       }
 
-      // Type the message after clicking the card
-      await typeMessage(bubbleMessage, item.information);
+      // Split response into sentences and group them into chunks of 3
+      const sentences = item.information.split(/(?<=[.!?])\s+/); // Split into sentences
+      const chunks = [];
+      for (let i = 0; i < sentences.length; i += 3) {
+        chunks.push(sentences.slice(i, i + 3).join(" "));
+      }
 
-      // Additional delay before going back
-      await delay(1000);
+      // Display each chunk one at a time
+      for (const chunk of chunks) {
+        await typeMessage(bubbleMessage, chunk); // Update bubble with current chunk
+        await delay(1000); // Wait for 3 seconds before showing the next chunk
+      }
 
       // Handle the 'Go Back' button
       if (targetCard) {
@@ -262,15 +267,25 @@ async function showGreetingBubble() {
 If you look closely at the bottom, you'll find a chat field. Feel free to ask me anything, and I'll do my best to provide the information you're looking for.
 Please note that I am currently running on a free server, so don't be surprised if I stop working unexpectedly. :)
 PS: If you'd like to make me disappear, just click the floating icon at the bottom right. Click it again when you want to ask me anything.`;
-  await typeMessage(bubbleMessage, greeting);
-  delay(500);
+
+  // Split response into sentences and group them into chunks of 3
+  const sentences = greeting.split(/(?<=[.!?])\s+/); // Split into sentences
+  const chunks = [];
+  for (let i = 0; i < sentences.length; i += 3) {
+    chunks.push(sentences.slice(i, i + 3).join(" "));
+  }
+
+  // Display each chunk one at a time
+  for (const chunk of chunks) {
+    await typeMessage(bubbleMessage, chunk); // Update bubble with current chunk
+    await delay(1000); // Wait for 3 seconds before showing the next chunk
+  }
   setTimeout(() => {
     bubbleContainer.removeChild(bubbleMessage);
     bubbleContainer.style.display = "none";
     document.getElementById("user-message").disabled = false;
     document.getElementById("send-message").disabled = false;
-  }, 1000);
+  }, 800);
 }
-
 // Run the function when the page loads
 window.addEventListener("load", showGreetingBubble);
