@@ -1,107 +1,11 @@
-/*!
-=========================================================
-* JohnDoe Landing page
-=========================================================
-
-* Copyright: 2019 DevCRUD (https://devcrud.com)
-* Licensed: (https://devcrud.com/licenses)
-* Coded by www.devcrud.com
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
-// smooth scroll
-$(document).ready(function () {
-  $(".navbar .nav-link").on("click", function (event) {
-    if (this.hash !== "") {
-      event.preventDefault();
-
-      var hash = this.hash;
-      console.log("Scrolling to : " + hash);
-      $("html, body").animate(
-        {
-          scrollTop: $(hash).offset().top,
-        },
-        700
-      );
-    }
-  });
-});
-
-// protfolio filters
-$(window).on("load", function () {
-  var t = $(".portfolio-container");
-  t.isotope({
-    filter: ".new",
-    animationOptions: {
-      duration: 750,
-      easing: "linear",
-      queue: !1,
-    },
-  }),
-    $(".filters a").click(function () {
-      $(".filters .active").removeClass("active"), $(this).addClass("active");
-      var i = $(this).attr("data-filter");
-      return (
-        t.isotope({
-          filter: i,
-          animationOptions: {
-            duration: 750,
-            easing: "linear",
-            queue: !1,
-          },
-        }),
-        !1
-      );
-    });
-});
-
-$(document).ready(function () {
-  $(".view-details").on("click", function () {
-    // Get data attributes from the button
-    var title = $(this).data("title");
-    var description = $(this).attr("data-description"); // Fixed attribute selector
-    var image = $(this).data("image");
-
-    // Wrap description content with a unique class for scoped styling
-    var wrappedDescription = `<div class="project-modal-content">${description}</div>`;
-
-    // Populate the modal with the project details
-    $("#projectModalLabel").text(title);
-    $("#modalDescription").html(wrappedDescription);
-    $("#modalMainImage").attr("src", image);
-
-    // Show the modal
-    $("#projectModal").modal("show");
-  });
-
-  // Filtering functionality (remains unchanged)
-  $(".filter-btn").on("click", function () {
-    var filterValue = $(this).data("filter");
-    $(".project-card").each(function () {
-      if (filterValue === "all") {
-        $(this).show();
-      } else {
-        $(this).toggle($(this).data("category") === filterValue);
-      }
-    });
-    $(".filter-btn").removeClass("active");
-    $(this).addClass("active");
-  });
-});
-
-// google maps
 function initMap() {
-  // Styles a map in night mode.
-  var map = new google.maps.Map(document.getElementById("map"), {
+  new google.maps.Map(document.getElementById("map"), {
     center: { lat: 40.674, lng: -73.945 },
     zoom: 12,
-    scrollwheel: false,
-    navigationControl: false,
-    mapTypeControl: false,
-    scaleControl: false,
+    scrollwheel: !1,
+    navigationControl: !1,
+    mapTypeControl: !1,
+    scaleControl: !1,
     styles: [
       { elementType: "geometry", stylers: [{ color: "#242f3e" }] },
       { elementType: "labels.text.stroke", stylers: [{ color: "#242f3e" }] },
@@ -185,100 +89,110 @@ function initMap() {
   });
 }
 function startTypingEffect() {
-  var text = "Omar Bradai"; // Text to be typed
-  var typingElement = document.getElementById("typing-name");
-  var cursorElement = document.querySelector(".cursor");
-  var i = 0;
-  var speed = 150; // Typing speed in milliseconds
-
-  // Function to simulate typing
-  function typeCharacter() {
-    if (i < text.length) {
-      typingElement.innerHTML += text.charAt(i); // Add one character at a time
-      i++;
-      setTimeout(typeCharacter, speed); // Recursive call with delay for each character
-    }
-  }
-
-  // Start typing when page is loaded
-  typeCharacter();
+  var e = "Omar Bradai",
+    t = document.getElementById("typing-name"),
+    o = (document.querySelector(".cursor"), 0);
+  !(function l() {
+    o < e.length && ((t.innerHTML += e.charAt(o)), o++, setTimeout(l, 150));
+  })();
 }
-
-// Call the function when the page is fully loaded
-window.onload = function () {
-  startTypingEffect();
-};
-
-emailjs.init("QhoY9h2lpG987Ab_m"); // Replace with your EmailJS user ID
-
-document
-  .getElementById("contact-form")
-  .addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    emailjs.sendForm("service_rpvslne", "template_dqsibul", this).then(
-      function (response) {
-        console.log("Success:", response);
-        alert("Message sent successfully");
-      },
-      function (error) {
-        console.log("Error:", error);
-        alert("Failed to send message");
-      }
-    );
-  });
-
-// Ensure the script runs after the DOM is fully loaded
-document.addEventListener("DOMContentLoaded", function () {
-  // Add a new history state when the modal is shown
-  $("#projectModal").on("show.bs.modal", function () {
-    history.pushState(null, null, location.href);
-  });
-
-  // Detect back button press to close the modal if it's open
-  window.addEventListener("popstate", function () {
-    if ($("#projectModal").hasClass("show")) {
-      // Check if modal is open
-      $("#projectModal").modal("hide"); // Close the modal
-    } else {
-      history.back(); // Navigate back if the modal is already closed
-    }
-  });
-});
-// Close chat box
 function closeChatBox() {
-  console.log("Close button clicked");
-  document.getElementById("chat-messages").style.display = "none";
-  document.getElementById("close-m").style.display = "none";
-  document.getElementById("open-m").style.display = "block";
+  (document.getElementById("chat-messages").style.display = "none"),
+    (document.getElementById("close-m").style.display = "none"),
+    (document.getElementById("open-m").style.display = "block");
 }
-
-// Open chat box (if needed)
 function openChatBox() {
-  document.getElementById("chat-messages").style.display = "block";
-  document.getElementById("open-m").style.display = "none";
-  document.getElementById("close-m").style.display = "block";
+  (document.getElementById("chat-messages").style.display = "block"),
+    (document.getElementById("open-m").style.display = "none"),
+    (document.getElementById("close-m").style.display = "block");
 }
-
-const hoverIcon = document.getElementById("hover-icon");
-if (hoverIcon) {
-  hoverIcon.addEventListener("click", function () {
-    const robotContainer = document.getElementById("robot-container");
-    const chatBox = document.getElementById("robot-chat-box");
-
-    // Toggle the visibility of the robot and chat box
-    if (robotContainer.style.display === "none") {
-      robotContainer.style.display = "block"; // Show the robot
-      chatBox.style.display = "block";
-      if (document.querySelector(".message-bubble").childElementCount > 0) {
-        document.querySelector(".message-bubble").style.display = "block";
-      }
-    } else {
-      robotContainer.style.display = "none"; // Hide the robot
-      chatBox.style.display = "none"; // Hide the chat box
-      document.querySelector(".message-bubble").style.display = "none";
+$(document).ready(function () {
+  $(".navbar .nav-link").on("click", function (e) {
+    if ("" !== this.hash) {
+      e.preventDefault();
+      var t = this.hash;
+      $("html, body").animate({ scrollTop: $(t).offset().top }, 700);
     }
   });
-} else {
-  console.error("Hover icon not found!");
-}
+}),
+  $(window).on("load", function () {
+    var e = $(".portfolio-container");
+    e.isotope({
+      filter: ".new",
+      animationOptions: { duration: 750, easing: "linear", queue: !1 },
+    }),
+      $(".filters a").click(function () {
+        $(".filters .active").removeClass("active"), $(this).addClass("active");
+        var t = $(this).attr("data-filter");
+        return (
+          e.isotope({
+            filter: t,
+            animationOptions: { duration: 750, easing: "linear", queue: !1 },
+          }),
+          !1
+        );
+      });
+  }),
+  $(document).ready(function () {
+    $(".view-details").on("click", function () {
+      var e = $(this).data("title"),
+        t = $(this).attr("data-description"),
+        o = $(this).data("image"),
+        l = `<div class="project-modal-content">${t}</div>`;
+      $("#projectModalLabel").text(e),
+        $("#modalDescription").html(l),
+        $("#modalMainImage").attr("src", o),
+        $("#projectModal").modal("show");
+    }),
+      $(".filter-btn").on("click", function () {
+        var e = $(this).data("filter");
+        $(".project-card").each(function () {
+          "all" === e
+            ? $(this).show()
+            : $(this).toggle($(this).data("category") === e);
+        }),
+          $(".filter-btn").removeClass("active"),
+          $(this).addClass("active");
+      });
+  }),
+  (window.onload = function () {
+    startTypingEffect();
+  }),
+  emailjs.init("QhoY9h2lpG987Ab_m"),
+  document
+    .getElementById("contact-form")
+    .addEventListener("submit", function (e) {
+      e.preventDefault(),
+        emailjs.sendForm("service_rpvslne", "template_dqsibul", this).then(
+          function (e) {
+            alert("Message sent successfully");
+          },
+          function (e) {
+            alert("Failed to send message");
+          }
+        );
+    }),
+  document.addEventListener("DOMContentLoaded", function () {
+    $("#projectModal").on("show.bs.modal", function () {
+      history.pushState(null, null, location.href);
+    }),
+      window.addEventListener("popstate", function () {
+        $("#projectModal").hasClass("show")
+          ? $("#projectModal").modal("hide")
+          : history.back();
+      });
+  });
+const hoverIcon = document.getElementById("hover-icon");
+hoverIcon &&
+  hoverIcon.addEventListener("click", function () {
+    const e = document.getElementById("robot-container"),
+      t = document.getElementById("robot-chat-box");
+    "none" === e.style.display
+      ? ((e.style.display = "block"),
+        (t.style.display = "block"),
+        document.querySelector(".message-bubble").childElementCount > 0 &&
+          (document.querySelector(".message-bubble").style.display = "block"))
+      : ((e.style.display = "none"),
+        (t.style.display = "none"),
+        (document.querySelector(".message-bubble").style.display = "none"));
+  });
