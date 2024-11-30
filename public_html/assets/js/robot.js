@@ -269,7 +269,7 @@ document.getElementById("send-message").addEventListener("click", async () => {
 
           for (const part of messageChunks) {
             await typeMessage(a, part);
-            await delay(1000);
+            await delay(300);
           }
           if (card) {
             const closeModal = document.querySelector(
@@ -277,7 +277,7 @@ document.getElementById("send-message").addEventListener("click", async () => {
             );
             if (closeModal) closeModal.click();
           }
-          await delay(1000);
+          await delay(300);
         }
       } catch (e) {
         await typeMessage(
@@ -297,7 +297,7 @@ document.getElementById("send-message").addEventListener("click", async () => {
           document.getElementById("stop-message").disabled = true;
           document.getElementById("send-message").style.display = "block";
           document.getElementById("stop-message").style.display = "none";
-        }, 1000);
+        }, 300);
       }
     }
   } catch (e) {
