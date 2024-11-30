@@ -438,8 +438,8 @@ function stopTalking() {
     bubble.innerHTML = ""; // Clear all child elements
   }
   document.getElementById("user-message").disabled = false;
-  document.getElementById("send-message").disabled = false;
   document.getElementById("stop-message").disabled = true;
+  waitFetch();
   document.getElementById("suggestions-btn").disabled = false;
   document.getElementById("stop-message").style.display = "none";
   document.getElementById("send-message").style.display = "block";
@@ -448,4 +448,13 @@ function stopTalking() {
   }
 
   callCount = 0;
+}
+async function waitFetch() {
+  return new Promise((resolve, reject) => {
+    const interval = setInterval(() => {
+      clearInterval(interval);
+      resolve();
+      document.getElementById("send-message").disabled = false; // Resolve the promise if not stopped
+    }, 2000);
+  });
 }
