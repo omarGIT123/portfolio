@@ -57,8 +57,9 @@ async function typeMessage_greet(e, t) {
     }, 60);
   });
 }
-
+let isTyping = false;
 async function typeMessage(e, t) {
+  isTyping = true;
   let n = 0;
   e.textContent = "";
   return new Promise((o) => {
@@ -93,6 +94,7 @@ async function getResponse(e) {
     return (await o.json()).response;
   } catch (e) {
     clearTimeout(n);
+    console.log(e);
     return e.name === "AbortError"
       ? [
           {
@@ -101,7 +103,12 @@ async function getResponse(e) {
             section: "",
           },
         ]
-      : [{ information: `Error: ${e.message}`, section: "" }];
+      : [
+          {
+            information: `An exception has occurred. Please try again! You might be asking multiple questions in a short period—please slow down!`,
+            section: "",
+          },
+        ];
   }
 }
 async function showGreetingBubble() {
@@ -161,7 +168,7 @@ PS: If you'd like to make me disappear, just click on the floating icon at the b
       e.style.display = "none";
       document.getElementById("user-message").disabled = false;
       document.getElementById("send-message").disabled = false;
-      document.getElementById("send-message").disabled = true;
+      document.getElementById("stop-message").disabled = true;
       document.getElementById("suggestions-btn").disabled = false;
       document.getElementById("stop-message").style.display = "none";
       document.getElementById("send-message").style.display = "block";
@@ -216,82 +223,85 @@ camera.position.z = 6;
 // Send message logic (for the chat)
 document.getElementById("send-message").addEventListener("click", async () => {
   isStopped = false;
-  const e = document.getElementById("user-message").value;
-  if (e.trim() !== "" && !document.getElementById("user-message").disabled) {
-    const t = document.getElementById("chat-messages");
-    document.getElementById("user-message").disabled = true;
-    document.getElementById("send-message").disabled = true;
-    document.getElementById("suggestions-btn").disabled = true;
-    document.getElementById("stop-message").disabled = false;
-    document.getElementById("send-message").style.display = "none";
-    document.getElementById("stop-message").style.display = "block";
-    const n = document.createElement("div");
-    n.className = "user-message";
-    n.textContent = "User: " + e + "\n";
-    t.appendChild(n);
-    document.getElementById("user-message").value = "";
-    const o = document.getElementById("message-bubble");
-    const a = document.createElement("div");
-    a.className = "bubble";
-    a.textContent = "Alright! Let's see...";
-    o.appendChild(a);
-    o.style.display = "block";
+  try {
+    const e = document.getElementById("user-message").value;
+    if (e.trim() !== "" && !document.getElementById("user-message").disabled) {
+      const t = document.getElementById("chat-messages");
+      document.getElementById("user-message").disabled = true;
+      document.getElementById("send-message").disabled = true;
+      document.getElementById("suggestions-btn").disabled = true;
+      document.getElementById("stop-message").disabled = false;
+      document.getElementById("send-message").style.display = "none";
+      document.getElementById("stop-message").style.display = "block";
+      const n = document.createElement("div");
+      n.className = "user-message";
+      n.textContent = "User: " + e + "\n";
+      t.appendChild(n);
+      document.getElementById("user-message").value = "";
+      const o = document.getElementById("message-bubble");
+      const a = document.createElement("div");
+      a.className = "bubble";
+      a.textContent = "Alright! Let's see...";
+      o.appendChild(a);
+      o.style.display = "block";
 
-    const s = await getResponse(e);
-    try {
-      for (const message of s) {
-        if ($("#projectModal").hasClass("show")) {
-          const closeModal = document.querySelector(
-            '#projectModal [data-dismiss="modal"]'
+      const s = await getResponse(e);
+      try {
+        for (const message of s) {
+          const targetSection = document.getElementById(
+            message.section.toLowerCase()
           );
-          if (closeModal) closeModal.click();
-        }
-        const targetSection = document.getElementById(
-          message.section.toLowerCase()
-        );
-        if (targetSection) {
-          targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
-          await delay(1300);
-        }
-        const card = document.querySelector(`[data-title="${message.card}"]`);
-        if (card) card.click();
+          if (targetSection) {
+            targetSection.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+            await delay(1300);
+          }
+          const card = document.querySelector(`[data-title="${message.card}"]`);
+          if (card) card.click();
 
-        const messageParts = message.information.split(/(?<=[.!?])\s+/);
-        const messageChunks = [];
-        for (let i = 0; i < messageParts.length; i += 3) {
-          messageChunks.push(messageParts.slice(i, i + 3).join(" "));
-        }
+          const messageParts = message.information.split(/(?<=[.!?])\s+/);
+          const messageChunks = [];
+          for (let i = 0; i < messageParts.length; i += 3) {
+            messageChunks.push(messageParts.slice(i, i + 3).join(" "));
+          }
 
-        for (const part of messageChunks) {
-          await typeMessage(a, part);
+          for (const part of messageChunks) {
+            await typeMessage(a, part);
+            await delay(1000);
+          }
+          if (card) {
+            const closeModal = document.querySelector(
+              '#projectModal [data-dismiss="modal"]'
+            );
+            if (closeModal) closeModal.click();
+          }
           await delay(1000);
         }
-        if (card) {
-          const closeModal = document.querySelector(
-            '#projectModal [data-dismiss="modal"]'
-          );
-          if (closeModal) closeModal.click();
-        }
-        await delay(1000);
+      } catch (e) {
+        await typeMessage(
+          a,
+          "Told ya! an error has occurred.. Sadly the server might be getting slow due to inactivity."
+        );
       }
-    } catch (e) {
-      await typeMessage(
-        a,
-        "Told ya! an error has occurred.. Sadly the server might be getting slow due to inactivity."
-      );
+      if (!isStopped) {
+        setTimeout(() => {
+          if (a && o.contains(a)) {
+            o.removeChild(a);
+          }
+          o.style.display = "none";
+          document.getElementById("user-message").disabled = false;
+          document.getElementById("send-message").disabled = false;
+          document.getElementById("suggestions-btn").disabled = false;
+          document.getElementById("stop-message").disabled = true;
+          document.getElementById("send-message").style.display = "block";
+          document.getElementById("stop-message").style.display = "none";
+        }, 1000);
+      }
     }
-    if (!isStopped) {
-      setTimeout(() => {
-        o.removeChild(a);
-        o.style.display = "none";
-        document.getElementById("user-message").disabled = false;
-        document.getElementById("send-message").disabled = false;
-        document.getElementById("suggestions-btn").disabled = false;
-        document.getElementById("send-message").disabled = true;
-        document.getElementById("send-message").style.display = "block";
-        document.getElementById("stop-message").style.display = "none";
-      }, 1000);
-    }
+  } catch (e) {
+    console.log(e);
   }
 });
 
@@ -368,6 +378,12 @@ document.addEventListener("click", (e) => {
 
 document.getElementById("stop-message").addEventListener("click", stopTalking);
 function stopTalking() {
+  if ($("#projectModal").hasClass("show")) {
+    const closeModal = document.querySelector(
+      '#projectModal [data-dismiss="modal"]'
+    );
+    if (closeModal) closeModal.click();
+  }
   isStopped = true;
   firstVisit = true;
   const bubble = document.getElementById("message-bubble");
