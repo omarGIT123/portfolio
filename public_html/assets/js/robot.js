@@ -269,6 +269,7 @@ document.getElementById("send-message").addEventListener("click", async () => {
 
           for (const part of messageChunks) {
             await typeMessage(a, part);
+            if(isStopped) return;
             await delay(300);
           }
           if (card) {
@@ -277,6 +278,7 @@ document.getElementById("send-message").addEventListener("click", async () => {
             );
             if (closeModal) closeModal.click();
           }
+          if(isStopped) return;
           await delay(300);
         }
       } catch (e) {
@@ -285,7 +287,7 @@ document.getElementById("send-message").addEventListener("click", async () => {
           "Told ya! an error has occurred.. Sadly the server might be getting slow due to inactivity."
         );
       }
-      if (!isStopped) {
+      if (!isStopped && o.childElementCount <2) {
         setTimeout(() => {
           if (a && o.contains(a)) {
             o.removeChild(a);
