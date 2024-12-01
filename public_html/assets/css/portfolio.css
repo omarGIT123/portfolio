@@ -11112,7 +11112,7 @@ pre .code {
   position: fixed;
   display: none;
   top: 30%;
-  left: 60%;
+  left: 65%;
   transform: translate(-50%, -50%);
   z-index: 9999;
   pointer-events: none;
@@ -11120,7 +11120,7 @@ pre .code {
   color: white;
   padding: 10px 20px;
   border-radius: 20px;
-  font-size: 16px;
+  font-size: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   max-width: 400px;
   width: auto;
@@ -11222,6 +11222,25 @@ pre .code {
 }
 
 @media (max-width: 768px) {
+  .message-bubble {
+    position: fixed;
+    display: none;
+    top: 25%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    pointer-events: none;
+    background-color: #d32f2f;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 60%;
+    word-wrap: break-word;
+    line-height: 1.4;
+  }
   .robot-chat-box {
     bottom: 10px;
     width: 95%;
@@ -11333,6 +11352,25 @@ pre .code {
   outline: none;
 }
 @media (max-width: 550px) {
+  .message-bubble {
+    position: fixed;
+    display: none;
+    top: 25%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    pointer-events: none;
+    background-color: #d32f2f;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 60%;
+    word-wrap: break-word;
+    line-height: 1.4;
+  }
   #chat-field {
     flex-shrink: 0;
     display: flex;
