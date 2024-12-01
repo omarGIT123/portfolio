@@ -59,12 +59,12 @@ function delay(e) {
 }
 async function typeMessage_greet(e, t) {
   let n = 0;
-  e.textContent = "";
+  e.innerHTML = "";
   return new Promise((o) => {
     if (firstVisit) return;
     const a = setInterval(() => {
       if (firstVisit) return;
-      e.textContent += t.charAt(n);
+      e.innerHTML += t.charAt(n);
       n++;
       if (n === t.length) {
         clearInterval(a);
@@ -77,13 +77,13 @@ let isTyping = false;
 async function typeMessage(e, t) {
   isTyping = true;
   let n = 0;
-  e.textContent = "";
+  e.innerHTML = "";
   // console.log("started typing");
   return new Promise((resolve) => {
     // Check immediately if stopped before starting
     if (isStopped) {
       // console.log("stopped typing");
-      e.textContent = "";
+      e.innerHTML = "";
       isTyping = false; // Reset typing state
       resolve(); // Resolve the promise
       return;
@@ -92,14 +92,14 @@ async function typeMessage(e, t) {
     const intervalId = setInterval(() => {
       if (isStopped) {
         // console.log("stopped typing");
-        e.textContent = ""; // Clear the message
+        e.innerHTML = ""; // Clear the message
         clearInterval(intervalId); // Stop the interval
         isTyping = false; // Reset typing state
         resolve(); // Resolve the promise early
         return;
       }
 
-      e.textContent += t.charAt(n);
+      e.innerHTML += t.charAt(n);
       n++;
 
       if (n === t.length) {
@@ -135,13 +135,13 @@ async function getResponse(e) {
       ? [
           {
             information:
-              "Told ya! an error has occurred.. Sadly the server might be getting slow due to inactivity.",
+              "Told ya! Sadly the server might be getting slow due to inactivity 😴. It might take a few tries to get it back up. \n 😢 I apologize for the inconvenience.",
             section: "",
           },
         ]
       : [
           {
-            information: `An exception has occurred. Please try again! You might be asking multiple questions in a short period—please slow down!`,
+            information: `😡 An exception has occurred. Please try again! You might be asking multiple questions in a short period—please slow down!`,
             section: "",
           },
         ];
@@ -160,7 +160,7 @@ async function showGreetingBubble() {
   const e = document.getElementById("message-bubble");
   const t = document.createElement("div");
   t.className = "bubble";
-  t.textContent = "Ahum..ahum...";
+  t.innerHTML = "🎤 Ahum..ahum...";
   e.appendChild(t);
   e.style.display = "block";
   if (firstVisit) return;
@@ -168,10 +168,10 @@ async function showGreetingBubble() {
   if (firstVisit) return;
   let count_highlight = 0;
   const n =
-    `Hello and welcome to Omar Bradai's portfolio! My name is SynAI-P-V2, also known as Syn, and I am the manager of this portfolio.
-If you look closely at the bottom, you'll find a chat field. Feel free to ask me anything, and I'll do my best to provide the information you're looking for.
-Please note that I am currently running on a free server, so don't be surprised if I stop working unexpectedly. :)
-PS: If you'd like to make me disappear, just click on the floating icon at the bottom right. Click on it again when you want to ask me anything.`.split(
+    `👋 Hello and welcome to Omar Bradai's portfolio! My name is SynAI-P-V2, also known as Syn, and I am the manager of this portfolio.
+If you look closely at the bottom, you'll find a chat field. Feel free to ask me anything, and I'll do my best to provide the information you're looking for 🤝.
+Please note that I am currently running on a free server, so don't be surprised if I stop working unexpectedly 😅. 
+PS: If you'd like to make me disappear 🤔, just click on the floating icon at the bottom right. Click on it again when you want to ask me anything.`.split(
       /(?<=[.!?])\s+/
     );
   const o = [];
@@ -310,8 +310,8 @@ document.getElementById("send-message").addEventListener("click", async () => {
 
           const messageParts = message.information.split(/(?<=[.!?])\s+/);
           const messageChunks = [];
-          for (let i = 0; i < messageParts.length; i += 3) {
-            messageChunks.push(messageParts.slice(i, i + 3).join(" "));
+          for (let i = 0; i < messageParts.length; i += 2) {
+            messageChunks.push(messageParts.slice(i, i + 2).join(" "));
           }
 
           for (const part of messageChunks) {

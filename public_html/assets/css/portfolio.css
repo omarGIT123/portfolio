@@ -11281,7 +11281,13 @@ pre .code {
   outline: none;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 769px) and (max-width: 1024px) {
+  #loading-screen {
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
+    align-content: center;
+  }
   .message-bubble {
     position: fixed;
     display: none;
@@ -11316,22 +11322,6 @@ pre .code {
   .chat-messages {
     max-height: 200px;
     font-size: 12px;
-  }
-
-  .chat-input {
-    font-size: 12px;
-  }
-}
-
-@media (max-width: 480px) {
-  .robot-chat-box {
-    width: 90%;
-    bottom: 5px;
-  }
-
-  .hover-icon {
-    bottom: 10px;
-    right: 10px;
   }
 
   .chat-input {
@@ -11411,7 +11401,23 @@ pre .code {
 .suggestions-btn:focus {
   outline: none;
 }
-@media (max-width: 550px) {
+@media (max-width: 768px) {
+  #loading-screen {
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
+    align-content: center;
+  }
+  .loading-warning h3 {
+    color: rgba(255, 69, 58, 0.9); /* Vibrant red for the text */
+    font-size: 2rem; /* Slightly larger text for more impact */
+    font-weight: bold; /* Bold for emphasis */
+    text-align: center; /* Center-align the text */
+    margin-bottom: 25px; /* More space below the header */
+    margin-left: 5%;
+    max-width: 90%;
+    animation: pulse 4s ease-in-out infinite; /* Smoother, slower pulsing animation */
+  }
   .message-bubble {
     position: fixed;
     display: none;
