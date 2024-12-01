@@ -11510,3 +11510,6 @@ pre .code {
   height: 35px;
   animation: spin 1s linear infinite;
 }
+ul li {
+  margin-bottom: 10px; /* Adjust the value as needed */
+}
