@@ -11473,6 +11473,7 @@ pre .code {
   .chat-input {
     font-size: 12px;
     padding: 8px;
+    width: 30%;
   }
 
   .send-btn {
