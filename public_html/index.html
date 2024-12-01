@@ -15,9 +15,13 @@
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
      <div id="loading-screen">
-        <div class="loader"></div>
-        <p>Loading...</p>
+    <div class="loading-warning">
+        <h3> This portfolio is powered by <span class="llama-text">llama-3.2-3b-instruct</span>.</h3>
     </div>
+    <div class="loader"></div>
+    <p class="loading-p">Loading...</p>
+</div>
+
       <div id="overlay"></div>
     <header id="header-page" class="header">
         <div class="container">
@@ -1379,7 +1383,10 @@ well as other tools for DevOps such as bitbucket.</P>
     />
     <div id="play" class="play-button"> 
         <button id="send-message" class="send-btn">Send</button>
-     <button id="stop-message" class="stop-btn" style="display: none;">Stop</button>
+        <button id="stop-message" class="stop-btn" style="display: none;">Stop</button>
+        <div id="loading-button">
+            <div class="loader-button"></div>
+        </div>
     </div>
     <!-- Suggestions Button -->
     <button id="suggestions-btn" class="suggestions-btn">Suggestions</button>

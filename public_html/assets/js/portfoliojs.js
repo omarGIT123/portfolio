@@ -199,5 +199,5 @@ hoverIcon &&
 window.addEventListener("load", () => {
   setTimeout(() => {
     document.getElementById("loading-screen").style.display = "none"; // Hide spinner after 5 seconds
-  }, 3000); // 5000 milliseconds = 5 seconds
+  }, 5000); // 5000 milliseconds = 5 seconds
 });

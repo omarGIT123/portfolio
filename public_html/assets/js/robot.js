@@ -155,7 +155,7 @@ async function showGreetingBubble() {
   document.getElementById("stop-message").style.display = "block";
   document.getElementById("send-message").style.display = "none";
   if (firstVisit) return;
-  await delay(2000);
+  await delay(5000);
   if (firstVisit) return;
   const e = document.getElementById("message-bubble");
   const t = document.createElement("div");
@@ -287,7 +287,7 @@ document.getElementById("send-message").addEventListener("click", async () => {
       const o = document.getElementById("message-bubble");
       const a = document.createElement("div");
       a.className = "bubble";
-      a.textContent = "Alright! Let's see...";
+      a.innerHTML = "Alright! Let's see... 😊 🔍";
       o.appendChild(a);
       o.style.display = "block";
 
@@ -329,7 +329,7 @@ document.getElementById("send-message").addEventListener("click", async () => {
       } catch (e) {
         await typeMessage(
           a,
-          "Told ya! an error has occurred.. Sadly the server might be getting slow due to inactivity."
+          "The API is spun down due to inactivity. It might take a few tries to get it back up. \n :( I apologize for the inconvenience."
         );
       }
       if (!isStopped && callCount == 1) {
@@ -439,10 +439,11 @@ function stopTalking() {
   }
   document.getElementById("user-message").disabled = false;
   document.getElementById("stop-message").disabled = true;
+  document.getElementById("loading-button").style.display = "block";
   waitFetch();
   document.getElementById("suggestions-btn").disabled = false;
   document.getElementById("stop-message").style.display = "none";
-  document.getElementById("send-message").style.display = "block";
+
   if (document.getElementById("overlay")) {
     removeFocus();
   }
@@ -454,7 +455,9 @@ async function waitFetch() {
     const interval = setInterval(() => {
       clearInterval(interval);
       resolve();
-      document.getElementById("send-message").disabled = false; // Resolve the promise if not stopped
+      document.getElementById("send-message").disabled = false;
+      document.getElementById("send-message").style.display = "block";
+      document.getElementById("loading-button").style.display = "none"; // Resolve the promise if not stopped
     }, 2000);
   });
 }
