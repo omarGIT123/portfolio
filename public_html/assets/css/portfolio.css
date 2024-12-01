@@ -10905,9 +10905,9 @@ pre .code {
   background-color: #fff;
   padding: 20px;
   border-radius: 25px;
-  z-index: 9996;
+  z-index: 9995;
   max-width: 500px;
-  width: 90%;
+  width: 50%;
   font-family: "Roboto", sans-serif;
   color: #333;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
@@ -11023,6 +11023,7 @@ pre .code {
 }
 
 #chat-field {
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -11270,7 +11271,7 @@ pre .code {
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
-  width: 100%; /* Ensure button takes the full width of the container */
+  width: 30%; /* Ensure button takes the full width of the container */
   max-width: 300px; /* Max width for larger screens */
   box-sizing: border-box;
 }
@@ -11330,4 +11331,63 @@ pre .code {
 }
 .suggestions-btn:focus {
   outline: none;
+}
+@media (max-width: 550px) {
+  #chat-field {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 0px;
+    width: 100%;
+  }
+  .hover-icon {
+    position: fixed;
+    bottom: 90%;
+    right: 80%;
+    cursor: pointer;
+    z-index: 9996;
+    transform: scale(2);
+    transition: transform 0.3s ease;
+  }
+
+  .robot-chat-box {
+    width: 85%;
+    bottom: 5px;
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  .chat-header {
+    font-size: 1em;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .chat-title {
+    font-size: 1.2em;
+  }
+
+  .chat-messages {
+    max-height: 180px;
+    font-size: 12px;
+  }
+
+  .chat-input {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .send-btn {
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  .suggestions-btn {
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  .suggestions-list {
+    width: 150px;
+  }
 }
