@@ -119,7 +119,7 @@ async function getResponse(e) {
     t.abort();
   }, 2e4);
   try {
-    const o = await fetch("https://41.231.54.158:3000/", {
+    const o = await fetch("http://41.231.54.158:3000/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ input: e }),
@@ -130,7 +130,7 @@ async function getResponse(e) {
     return (await o.json()).response;
   } catch (e) {
     clearTimeout(n);
-    // console.log(e);
+    console.log(e.message);
     return e.name === "AbortError"
       ? [
           {
