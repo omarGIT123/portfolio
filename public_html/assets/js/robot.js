@@ -119,7 +119,7 @@ async function getResponse(e) {
     t.abort();
   }, 2e4);
   try {
-    const o = await fetch("https://synai-p.onrender.com/", {
+    const o = await fetch("https://41.231.54.158:3000/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ input: e }),
