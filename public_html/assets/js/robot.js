@@ -155,7 +155,7 @@ async function showGreetingBubble() {
   document.getElementById("stop-message").style.display = "block";
   document.getElementById("send-message").style.display = "none";
   if (firstVisit) return;
-  await delay(5000);
+  await delay(4000);
   if (firstVisit) return;
   const e = document.getElementById("message-bubble");
   const t = document.createElement("div");
