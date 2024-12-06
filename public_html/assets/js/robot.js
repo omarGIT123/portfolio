@@ -281,7 +281,7 @@ document.getElementById("send-message").addEventListener("click", async () => {
       document.getElementById("stop-message").style.display = "block";
       const n = document.createElement("div");
       n.className = "user-message";
-      n.textContent = "User: " + e + "\n";
+      n.innerHTML = `• ${e}<br>`;
       t.appendChild(n);
       document.getElementById("user-message").value = "";
       const o = document.getElementById("message-bubble");
