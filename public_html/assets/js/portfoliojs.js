@@ -158,7 +158,6 @@ $(document).ready(function () {
   (window.onload = function () {
     startTypingEffect();
   }),
-  emailjs.init("QhoY9h2lpG987Ab_m"),
   document
     .getElementById("contact-form")
     .addEventListener("submit", function (e) {
@@ -201,3 +200,34 @@ window.addEventListener("load", () => {
     document.getElementById("loading-screen").style.display = "none"; // Hide spinner after 5 seconds
   }, 3000); // 5000 milliseconds = 5 seconds
 });
+emailjs.init("QhoY9h2lpG987Ab_m");
+async function trackAndNotify() {
+  try {
+    // Step 1: Fetch IP Address
+    const response = await fetch("https://api.ipify.org?format=json");
+    const data = await response.json();
+    const ipAddress = data.ip;
+
+    // Step 2: Send Email
+    const serviceID = "service_rpvslne"; // Replace with your service ID
+    const templateID = "template_7zyznsg"; // Replace with your template ID
+
+    const templateParams = {
+      user_ip: ipAddress, // Send IP address as parameter
+    };
+
+    emailjs
+      .send(serviceID, templateID, templateParams)
+      .then((result) => {
+        console.log("IP sent successfully:", result.text);
+      })
+      .catch((error) => {
+        console.error("IP to send email:", error);
+      });
+  } catch (error) {
+    console.error("Error tracking IP or sending email:", error);
+  }
+}
+
+// Call the function when the page loads
+document.addEventListener("DOMContentLoaded", trackAndNotify);
