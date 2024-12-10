@@ -202,39 +202,39 @@ window.addEventListener("load", () => {
 });
 emailjs.init("QhoY9h2lpG987Ab_m");
 
-async function trackAndNotify() {
-  try {
-    // Step 1: Fetch IP Address
-    const response = await fetch("https://api.ipify.org?format=json");
-    const data = await response.json();
-    const ipAddress = data.ip;
+// async function trackAndNotify() {
+//   try {
+//     // Step 1: Fetch IP Address
+//     const response = await fetch("https://api.ipify.org?format=json");
+//     const data = await response.json();
+//     const ipAddress = data.ip;
 
-    // Log the IP address to verify
-    console.log("Retrieved IP address:", ipAddress);
+//     // Log the IP address to verify
+//     console.log("Retrieved IP address:", ipAddress);
 
-    // Step 2: Send Email
-    const serviceID = "service_rpvslne"; // Replace with your service ID
-    const templateID = "template_7zyznsg"; // Replace with your template ID
+//     // Step 2: Send Email
+//     const serviceID = "service_rpvslne"; // Replace with your service ID
+//     const templateID = "template_7zyznsg"; // Replace with your template ID
 
-    const templateParams = {
-      user_ip: ipAddress, // Send IP address as parameter
-    };
+//     const templateParams = {
+//       user_ip: ipAddress, // Send IP address as parameter
+//     };
 
-    // Log the template parameters to verify
-    console.log("Template parameters:", templateParams);
+//     // Log the template parameters to verify
+//     console.log("Template parameters:", templateParams);
 
-    emailjs
-      .send(serviceID, templateID, templateParams)
-      .then((result) => {
-        console.log("IP sent successfully:", result.text);
-      })
-      .catch((error) => {
-        console.error("Error sending email:", error);
-      });
-  } catch (error) {
-    console.error("Error tracking IP or sending email:", error);
-  }
-}
+//     emailjs
+//       .send(serviceID, templateID, templateParams)
+//       .then((result) => {
+//         console.log("IP sent successfully:", result.text);
+//       })
+//       .catch((error) => {
+//         console.error("Error sending email:", error);
+//       });
+//   } catch (error) {
+//     console.error("Error tracking IP or sending email:", error);
+//   }
+// }
 
-// Call the function when the page loads
-document.addEventListener("DOMContentLoaded", trackAndNotify);
+// // Call the function when the page loads
+// document.addEventListener("DOMContentLoaded", trackAndNotify);
