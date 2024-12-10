@@ -119,7 +119,7 @@ async function getResponse(e) {
     t.abort();
   }, 2e4);
   try {
-    const o = await fetch("http://localhost:3000", {
+    const o = await fetch("https://api.omarbradai.tn", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ input: e }),
