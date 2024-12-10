@@ -203,30 +203,21 @@ window.addEventListener("load", () => {
 emailjs.init("QhoY9h2lpG987Ab_m");
 async function trackAndNotify() {
   try {
-    // Step 1: Fetch IP Address
     const response = await fetch("https://api.ipify.org?format=json");
     const data = await response.json();
     const ipAddress = data.ip;
-    console.log("Retrieved IP address:", ipAddress);
-    // Step 2: Send Email
     const serviceID = "service_rpvslne"; // Replace with your service ID
     const templateID = "template_7zyznsg"; // Replace with your template ID
-    console.log("Retrieved IP address:", ipAddress);
+
     const templateParams = {
-      user_ip: ipAddress, // Send IP address as parameter
+      user_ip: ipAddress,
     };
 
     emailjs
       .send(serviceID, templateID, templateParams)
-      .then((result) => {
-        console.log("IP sent successfully:", result.text);
-      })
-      .catch((error) => {
-        console.error("IP to send email:", error);
-      });
-  } catch (error) {
-    console.error("Error tracking IP or sending email:", error);
-  }
+      .then((result) => {})
+      .catch((error) => {});
+  } catch (error) {}
 }
 
 // Call the function when the page loads
