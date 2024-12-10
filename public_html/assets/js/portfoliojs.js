@@ -207,11 +207,11 @@ async function trackAndNotify() {
     const response = await fetch("https://api.ipify.org?format=json");
     const data = await response.json();
     const ipAddress = data.ip;
-
+    console.log("Retrieved IP address:", ipAddress);
     // Step 2: Send Email
     const serviceID = "service_rpvslne"; // Replace with your service ID
     const templateID = "template_7zyznsg"; // Replace with your template ID
-
+    console.log("Retrieved IP address:", ipAddress);
     const templateParams = {
       user_ip: ipAddress, // Send IP address as parameter
     };
