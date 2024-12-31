@@ -89,11 +89,28 @@ function initMap() {
   });
 }
 function startTypingEffect() {
-  var e = "Omar Bradai",
-    t = document.getElementById("typing-name"),
-    o = (document.querySelector(".cursor"), 0);
-  !(function l() {
-    o < e.length && ((t.innerHTML += e.charAt(o)), o++, setTimeout(l, 150));
+  const text = "Omar Bradai"; // The text to type out
+  const typingName = document.getElementById("typing-name");
+  const cursor = document.querySelector(".cursor"); // Select the white cursor
+  let index = 0;
+
+  (function typeCharacter() {
+    if (index < text.length) {
+      if (index === text.length - 2) {
+        // When reaching "AI", add the styled icon
+        typingName.innerHTML += `<span class="ai-icon">${
+          text.charAt(index) + text.charAt(index + 1)
+        }</span>`;
+        index += 2; // Skip typing "AI" as it's already handled
+      } else {
+        typingName.innerHTML += text.charAt(index);
+        index++;
+      }
+      setTimeout(typeCharacter, 150); // Typing speed
+    } else {
+      // Typing finished, ensure only one white cursor remains
+      cursor.style.display = "inline-block"; // Keep the white cursor
+    }
   })();
 }
 function closeChatBox() {
