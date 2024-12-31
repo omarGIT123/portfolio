@@ -1,398 +1,546 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="Devcrud">
-    <title>Omar Bradai Portfolio</title>
-    <!-- font icons -->
-     
-    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
-    <!-- Bootstrap + portfolio main styles -->
-	<link rel="stylesheet" href="assets/css/portfolio.css">
-    
-</head>
-<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
-     <div id="loading-screen">
-    <div class="loading-warning">
-        <h3> This portfolio is powered by <span class="llama-text">llama-3.2-3b-instruct</span>.</h3>
-    </div>
-    <div class="loader"></div>
-    <p class="loading-p">Loading...</p>
-</div>
+    <head>
+        <script
+            src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+        <meta charset="utf-8">
+        <meta name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content>
+        <meta name="author" content="Devcrud">
+        <title>Omar Bradai Portfolio</title>
+        <!-- font icons -->
 
-      <div id="overlay"></div>
-    <header id="header-page" class="header">
-        <div class="container">
-            <ul class="social-icons pt-3">
-                <li class="social-item"><a class="social-link text-light" href="https://www.facebook.com/omar.bradai.3/"  target="_blank"><i class="ti-facebook" aria-hidden="true"></i></a></li>
-                <li class="social-item"><a class="social-link text-light" href="https://www.linkedin.com/in/omar-bradai-a058211a5/" target="_blank"><i class="ti-linkedin" aria-hidden="true"></i></a></li>
-                <li class="social-item">
-  <a class="social-link" href="mailto:?to=example@domain.com&cc=omarbradai142@gmail.com&subject=Hello&body=This%20is%20the%20message%20body" target="_blank">
-    <i class="ti-google" aria-hidden="true"></i>
-  </a>
-</li>
- </ul>  
-            <div class="header-content">
-                <h4 class="header-subtitle" >Hello, I am</h4>
-              <h1 class="header-title">
-  <span id="typing-name"></span><span class="cursor">|</span>
-</h1>
+        <link rel="stylesheet"
+            href="assets/vendors/themify-icons/css/themify-icons.css">
+        <!-- Bootstrap + portfolio main styles -->
+        <link rel="stylesheet" href="assets/css/portfolio.css">
 
-                <h6 class="header-mono" >AI Engineer</h6>
-                <a href="assets\resume\Omar_Bradai_CV.pdf" download="Omar_Bradai_resume.pdf" class="btn btn-primary btn-rounded"  target="_blank">
-    <i class="ti-printer pr-2"></i> Print Resume
-</a>
-
+    </head>
+    <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+        <div id="loading-screen">
+            <div class="loading-warning">
+                <h3> This portfolio is powered by <span
+                        class="llama-text">llama-3.2-3b-instruct</span>.</h3>
             </div>
+            <div class="loader"></div>
+            <p class="loading-p">Loading...</p>
         </div>
-    </header>
-    <nav id="navar-page" class="navbar sticky-top navbar-expand-lg navbar-light bg-white" data-spy="affix" data-offset-top="510">
-    <div class="container">
-        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse mt-sm-20 navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a href="#home" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#about" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#resume" class="nav-link">Resume</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav brand">
-                <img src="assets/imgs/avatar.jpg" loading="lazy" alt="" class="brand-img">
-                <li class="brand-txt">
-                    <h5 class="brand-title">Omar Bradai</h5>
-                    <div class="brand-subtitle">AI Engineer</div>
-                </li>
-            </ul>
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a href="#portfolio" class="nav-link">Portfolio</a>
-                </li>
-                <li class="nav-item last-item">
-                    <a href="#contact" class="nav-link">Contact</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
 
-    <div id="fluid-page" class="container-fluid">
-        <div id="about" class="row about-section">
-            <div class="col-lg-4 about-card">
-                <h3 class="font-weight-light">Who am I ?</h3>
-                <span class="line mb-5"></span>
-                <h5 class="mb-3">An AI Engineer </h5>
-                <p class="mt-20">As a dedicated and motivated individual, I am deeply passionate about the field of Artificial Intelligence. With
-a strong academic foundation and a thirst for more experience, I am committed to contributing to
-the advancement of the industry and its transformative potential.</p>
-               <a href="assets\resume\Omar_Bradai_CV.pdf" download="Omar_Bradai_resume.pdf" class="btn btn-primary btn-rounded"  target="_blank">
-    <i class="ti-printer pr-2"></i> Download My CV
-</a>
-            </div>
-            <div class="col-lg-4 about-card">
-                <h3 class="font-weight-light">Personal Info</h3>
-                <span class="line mb-5"></span>
-                <ul class="mt40 info list-unstyled">
-                    <li><span>Birthdate</span> : 08/08/2000</li>
-                    <li><span>Email</span> : omarbradai142@gmail.com</li>
-                    <li><span>Phone</span> : + (216) 20 681 965</li>
-                    <li><span>Address</span> :  2047 Elmourouj3, Ben arouss, Tunisia.</li>
-                </ul>
+        <div id="overlay"></div>
+        <header id="header-page" class="header">
+            <div class="container">
                 <ul class="social-icons pt-3">
-                    <li class="social-item"><a class="social-link" href="https://www.facebook.com/omar.bradai.3/"  target="_blank"><i class="ti-facebook" aria-hidden="true"></i></a></li>
-                    <li class="social-item"><a class="social-link" href="https://www.linkedin.com/in/omar-bradai-a058211a5/"  target="_blank"><i class="ti-linkedin" aria-hidden="true"></i></a></li>
-                    <li class="social-item"><a class="social-link" href="https://github.com/omarGIT123"  target="_blank"><i class="ti-github" aria-hidden="true"></i></a></li>
-                </ul>  
-            </div>
-            <div class="col-lg-4 about-card">
-                <h3 class="font-weight-light">My Expertise</h3>
-                <span class="line mb-5"></span>
-                <div class="row">
-                    <div class="col-1 text-danger pt-1"><i class="ti-thought icon-lg"></i></div>
-                    <div class="col-10 ml-auto mr-3">
-                        <h6>Machine learning engineering</h6>
-                        <p class="subtitle">Developing Applied Machine Learning Projects.</p>
-                        <hr>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-1 text-danger pt-1"><i class="ti-pencil-alt icon-lg"></i></div>
-                    <div class="col-10 ml-auto mr-3">
-                        <h6>NLP</h6>
-                        <p class="subtitle">Working with Large Language Models and Developing NLP-Based Projects</p>
-                        <hr>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-1 text-danger pt-1"><i class="ti-layout-list-thumb icon-lg"></i></div>
-                    <div class="col-10 ml-auto mr-3">
-                        <h6>Data engineering</h6>
-                        <p class="subtitle"> Designing and building systems for collecting, storing, and analyzing data</p>
-                        <hr>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                    <li class="social-item"><a class="social-link text-light"
+                            href="https://www.facebook.com/omar.bradai.3/"
+                            target="_blank"><i class="ti-facebook"
+                                aria-hidden="true"></i></a></li>
+                    <li class="social-item"><a class="social-link text-light"
+                            href="https://www.linkedin.com/in/omar-bradai-a058211a5/"
+                            target="_blank"><i class="ti-linkedin"
+                                aria-hidden="true"></i></a></li>
+                    <li class="social-item">
+                        <a class="social-link"
+                            href="mailto:?to=example@domain.com&cc=omarbradai142@gmail.com&subject=Hello&body=This%20is%20the%20message%20body"
+                            target="_blank">
+                            <i class="ti-google" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+                <div class="header-content">
+                    <h4 class="header-subtitle">Hello, I am</h4>
+                    <h1 class="header-title">
+                        <span id="typing-name"></span><span
+                            class="cursor">|</span>
+                    </h1>
 
-    <!--Resume Section-->
-    <section class="section" id="resume">
-        <div class="container">
-            <h2 class="mb-5"><span class="text-danger">My</span> Resume</h2>
-            <div class="row">
-                <div class="col-md-6 col-lg-4">
-                    <div class="card">
-                       <div class="card-header">
-                            <div class="mt-2">
-                                <h4>Work experience</h4>
-                                <span class="line"></span>  
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h6 class="title text-danger">04-2024 - Present</h6>
-                            <P style="font-weight: 600;">AI engineer at EmyeHR</P>
-                             <ul class="job-description">
-        <li> Optimized integration between chat agents and the Emye bot, focusing on prompt quality and cost efficiency.</li>
-        <li> Fine-tuned GPT-3.5 for precise and efficient SQL generation tailored to company data.</li>
-        <li> Developed an automatic synthetic data generation program using GPT.</li>
-        <li> Developed benchmarking systems to evaluate agent performance and visualize results effectively.</li>
-        <li>Conducted R&D on AI-driven systems for predicting employee behavioral trends and resignation, utilizing online and batch machine learning, customized for EmyeHR clients’ personal data.</li>
-    </ul>
-                            <hr>
-                            <h6 class="title text-danger">07/2023 - 09/2023</h6>
-                            <P style="font-weight: 600;"> Machine learning engineering intern</P>
-                            <ul class="job-description">
-                                <li> Developed an automatic speech recognition ai model fine tuned on the Tunisian dialect.</li>
-                                <li>Created a dataset for the ASR model with 1000+ transcriptions and +1h of recordings using multiple data sources, cleaning and processing techniques using NumPy, OpenCV and TensorFlow</li>
-                                <li>Developed the infrastructure of the web platform for the project using terraform, AWS, docker as
-well as other tools for DevOps such as bitbucket.</li> 
-</ul>
-                            <hr>
-                            <h6 class="title text-danger">06/2023 - 08/2023</h6>
-                            <P style="font-weight: 600;">Mobile development intern at Tnker</P>
-                            <ul class="job-description">
-                                <li>Developed a flutter mobile app prototype for voice calling that handles 4 servers simultaneously.</li>
-                                <li>Integrated the voice calling prototype as a feature in the final product app.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card">
-                       <div class="card-header">
-                            <div class="mt-2">
-                                <h4>Education</h4>
-                                <span class="line"></span>  
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h6 class="title text-danger">2019 - 2024</h6>
-                            <P style="font-weight: 600;"> National Institute of Applied Science and Technology, Tunisia</P>
-                            <ul class="job-description">
-                                <li>Diploma in Industrial Computing and Automation Engineering, specializing in Data science.</li>
-                                <li>Throughout these five years, I had the opportunity to learn, practice and develop academic projects in machine learning and applying them too various industries such as robotics.</li></ul>
-                            <hr>
-                            <h6 class="title text-danger">2013 – 2018</h6>
-                            <P style="font-weight: 600;">British council, Tunis, Tunisia</P>
-                            <ul class="job-description"><li>Degree: First Certificate in English (FCE) with a C1 level in English</li></ul>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="card">
-                       <div class="card-header">
-                            <div class="pull-left">
-                                <h4 class="mt-2">Current technologies</h4>
-                                <span class="line"></span>  
-                            </div>
-                        </div>
-                        <div class="card-body pb-2">
-    <div class="d-flex flex-wrap justify-content-start align-items-center">
-        <!-- Python -->
-        <div class="tech-item text-center m-2">
-            <img src="assets/imgs/PYTHON.png" loading="lazy" alt="Python" class="tech-icon">
-            <h6 class="mt-2">Python</h6>
-        </div>
-        <!-- TensorFlow -->
-        <div class="tech-item text-center m-2">
-            <img src="assets/imgs/TF.png" loading="lazy" alt="TensorFlow" class="tech-icon">
-            <h6 class="mt-2">TensorFlow</h6>
-        </div>
-        <!-- Pandas -->
-        <div class="tech-item text-center m-2">
-            <img src="assets/imgs/PANDAS.png" loading="lazy" alt="Pandas" class="tech-icon">
-            <h6 class="mt-2">Pandas</h6>
-        </div>
-         <!-- NumPy -->
-        <div class="tech-item text-center m-2">
-            <img src="assets/imgs/NUMPY.png" loading="lazy" alt="NumPy" class="tech-icon">
-            <h6 class="mt-2">Numpy</h6>
-        </div>
-         <!-- GPT -->
-        <div class="tech-item text-center m-2">
-            <img src="assets/imgs/GPT.png" loading="lazy" alt="GPT" class="tech-icon">
-            <h6 class="mt-2">GPT</h6>
-        </div>
-         <!-- KERAS -->
-        <div class="tech-item text-center m-2">
-            <img src="assets/imgs/K.png" loading="lazy"alt="Keras" class="tech-icon">
-            <h6 class="mt-2">Keras</h6>
-        </div>
-        <!-- SQL -->
-        <div class="tech-item text-center m-2">
-            <img src="assets/imgs/PG.png" loading="lazy"  alt="SQL" class="tech-icon">
-            <h6 class="mt-2">PostgreSQL</h6>
-        </div>
-        <!-- C++ -->
-        <div class="tech-item text-center m-2">
-            <img src="assets/imgs/C.png" loading="lazy" alt="C++" class="tech-icon">
-            <h6 class="mt-2">C++</h6>
-        </div>
-        <!-- Git -->
-        <div class="tech-item text-center m-2">
-            <img src="assets/imgs/GIT.png" loading="lazy" alt="Git" class="tech-icon">
-            <h6 class="mt-2">Git</h6>
-        </div>
-         <!-- Nodejs -->
-         <div class="tech-item text-center m-2">
-            <img src="assets/imgs/nodejs.png" loading="lazy" alt="JavaScript" class="tech-icon">
-            <h6 class="mt-2">Node.js</h6>
-        </div>
-        <!-- JavaScript -->
-        <div class="tech-item text-center m-2">
-            <img src="assets/imgs/JS.png" loading="lazy"  alt="JavaScript" class="tech-icon">
-            <h6 class="mt-2">JavaScript</h6>
-        </div>
-    </div>
-</div>
+                    <h6 class="header-mono">AI Engineer</h6>
+                    <a href="assets\resume\Omar_Bradai_CV.pdf"
+                        download="Omar_Bradai_resume.pdf"
+                        class="btn btn-primary btn-rounded" target="_blank">
+                        <i class="ti-printer pr-2"></i> Print Resume
+                    </a>
 
-                    </div>
-                        
-                    <div class="card">
-                       <div class="card-header">
-                            <div class="pull-left">
-                                <h4 class="mt-2">Languages</h4>
-                                <span class="line"></span>  
-                            </div>
-                        </div>
-                        <div class="card-body pb-2">
-                           <h6>English</h6>
-                            <div class="progress mb-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 86%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <h6>French</h6>
-                            <div class="progress mb-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 56%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <h6>Arabic</h6>
-                            <div class="progress mb-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 99%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section class="section bg-dark text-center">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-md-6 col-lg-3">
-                    <div class="row ">
-                        <div class="col-5 text-right text-light border-right py-3">
-                            <div class="m-auto"><i class="ti-alarm-clock icon-xl"></i></div>
-                        </div>
-                        <div class="col-7 text-left py-3">
-                            <h1 class="text-danger font-weight-bold font40">+1600</h1>
-                            <p class="text-light mb-1">Hours Worked</p>
-                        </div>
-                    </div>
+        </header>
+        <nav id="navar-page"
+            class="navbar sticky-top navbar-expand-lg navbar-light bg-white"
+            data-spy="affix" data-offset-top="510">
+            <div class="container">
+                <button class="navbar-toggler ml-auto" type="button"
+                    data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse mt-sm-20 navbar-collapse"
+                    id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a href="#home" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#about" class="nav-link">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#resume" class="nav-link">Resume</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav brand">
+                        <img src="assets/imgs/avatar.jpg" loading="lazy" alt
+                            class="brand-img">
+                        <li class="brand-txt">
+                            <h5 class="brand-title">Omar Bradai</h5>
+                            <div class="brand-subtitle">AI Engineer</div>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#portfolio" class="nav-link">Portfolio</a>
+                        </li>
+                        <li class="nav-item last-item">
+                            <a href="#contact" class="nav-link">Contact</a>
+                        </li>
+                    </ul>
                 </div>
-                <div class="col-md-6 col-lg-3">
+            </div>
+        </nav>
+
+        <div id="fluid-page" class="container-fluid">
+            <div id="about" class="row about-section">
+                <div class="col-lg-4 about-card">
+                    <h3 class="font-weight-light">Who am I ?</h3>
+                    <span class="line mb-5"></span>
+                    <h5 class="mb-3">An AI Engineer </h5>
+                    <p class="mt-20">As a dedicated and motivated individual, I
+                        am deeply passionate about the field of Artificial
+                        Intelligence. With
+                        a strong academic foundation and a thirst for more
+                        experience, I am committed to contributing to
+                        the advancement of the industry and its transformative
+                        potential.</p>
+                    <a href="assets\resume\Omar_Bradai_CV.pdf"
+                        download="Omar_Bradai_resume.pdf"
+                        class="btn btn-primary btn-rounded" target="_blank">
+                        <i class="ti-printer pr-2"></i> Download My CV
+                    </a>
+                </div>
+                <div class="col-lg-4 about-card">
+                    <h3 class="font-weight-light">Personal Info</h3>
+                    <span class="line mb-5"></span>
+                    <ul class="mt40 info list-unstyled">
+                        <li><span>Birthdate</span> : 08/08/2000</li>
+                        <li><span>Email</span> : omarbradai142@gmail.com</li>
+                        <li><span>Phone</span> : + (216) 20 681 965</li>
+                        <li><span>Address</span> : 2047 Elmourouj3, Ben arouss,
+                            Tunisia.</li>
+                    </ul>
+                    <ul class="social-icons pt-3">
+                        <li class="social-item"><a class="social-link"
+                                href="https://www.facebook.com/omar.bradai.3/"
+                                target="_blank"><i class="ti-facebook"
+                                    aria-hidden="true"></i></a></li>
+                        <li class="social-item"><a class="social-link"
+                                href="https://www.linkedin.com/in/omar-bradai-a058211a5/"
+                                target="_blank"><i class="ti-linkedin"
+                                    aria-hidden="true"></i></a></li>
+                        <li class="social-item"><a class="social-link"
+                                href="https://github.com/omarGIT123"
+                                target="_blank"><i class="ti-github"
+                                    aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 about-card">
+                    <h3 class="font-weight-light">My Expertise</h3>
+                    <span class="line mb-5"></span>
                     <div class="row">
-                        <div class="col-5 text-right text-light border-right py-3">
-                            <div class="m-auto"><i class="ti-layers-alt icon-xl"></i></div>
-                        </div>
-                        <div class="col-7 text-left py-3">
-                            <h1 class="text-danger font-weight-bold font40">+7</h1>
-                            <p class="text-light mb-1">Project Finished</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="row">
-                        <div class="col-5 text-right text-light border-right py-3">
-                            <div class="m-auto"><i class="ti-face-smile icon-xl"></i></div>
-                        </div>
-                        <div class="col-7 text-left py-3">
-                            <h1 class="text-danger font-weight-bold font40">A lot</h1>
-                            <p class="text-light mb-1">Happy employers</p>
+                        <div class="col-1 text-danger pt-1"><i
+                                class="ti-thought icon-lg"></i></div>
+                        <div class="col-10 ml-auto mr-3">
+                            <h6>Machine learning engineering</h6>
+                            <p class="subtitle">Developing Applied Machine
+                                Learning Projects.</p>
+                            <hr>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
                     <div class="row">
-                        <div class="col-5 text-right text-light border-right py-3">
-                            <div class="m-auto"><i class="ti-heart-broken icon-xl"></i></div>
+                        <div class="col-1 text-danger pt-1"><i
+                                class="ti-pencil-alt icon-lg"></i></div>
+                        <div class="col-10 ml-auto mr-3">
+                            <h6>NLP</h6>
+                            <p class="subtitle">Working with Large Language
+                                Models and Developing NLP-Based Projects</p>
+                            <hr>
                         </div>
-                        <div class="col-7 text-left py-3">
-                            <h1 class="text-danger font-weight-bold font40">3k</h1>
-                            <p class="text-light mb-1">Coffee Drank</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-1 text-danger pt-1"><i
+                                class="ti-layout-list-thumb icon-lg"></i></div>
+                        <div class="col-10 ml-auto mr-3">
+                            <h6>Data engineering</h6>
+                            <p class="subtitle"> Designing and building systems
+                                for collecting, storing, and analyzing data</p>
+                            <hr>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <section class="section bg-dark py-5">
-        <div class="container text-center">
-            <h2 class="text-light mb-5 font-weight-normal">I Am Available For an interview</h2>
-             <a href="https://www.linkedin.com/in/omar-bradai-a058211a5/"class="btn bg-primary w-lg"  target="_blank">
-    </i> Hire me </a>
-        </div>
-    </section>
-
-      <!-- Portfolio Section -->
-<section class="section bg-custom-gray" id="portfolio">
-    <div class="container">
-        <h1 class="mb-5"><span class="text-danger">My</span> AI Projects</h1>
-        
-        <!-- Filters -->
-        <div class="filters mb-4">
-            <button class="btn btn-outline-primary filter-btn active" data-filter="all">All</button>
-            <!-- <button class="btn btn-outline-primary filter-btn" data-filter="ml">Machine Learning</button> -->
-            <button class="btn btn-outline-primary filter-btn" data-filter="nlp">Natural Language Processing</button>
-            <!-- <button class="btn btn-outline-primary filter-btn" data-filter="gpt">GPT</button> -->
-            <button class="btn btn-outline-primary filter-btn" data-filter="ex">Academic projects</button>
-        </div>
-        
-        <div class="portfolio">
-            <div class="portfolio-container row">
-                <!-- Project card 3 -->
-                <div class="col-md-6 col-lg-4 project-card" data-category="nlp">
-                    <div class="card mb-4">
-                        <img src="assets/imgs/asr.jpg"  loading='lazy' class="card-img-top" alt="Speech to text ai model">
-                        <div class="card-body">
-                            <h5 class="card-title">Tunisian ASR model</h5>
-                            <p class="card-text">Speech to text ai model for Tunisian Derja (dialect).</p>
-                            <div class="tech-tags">
-                                <span class="badge badge-info">Python</span>
-                                <span class="badge badge-info">ASR</span>
-                                <span class="badge badge-info">Natural language processing</span>
+        <!--Resume Section-->
+        <section class="section" id="resume">
+            <div class="container">
+                <h2 class="mb-5"><span class="text-danger">My</span> Resume</h2>
+                <div class="row">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="mt-2">
+                                    <h4>Work experience</h4>
+                                    <span class="line"></span>
+                                </div>
                             </div>
-                            <button class="btn btn-primary mt-3 view-details" data-title="Tunisian derja ASR model" data-description="<div class='container'>
+                            <div class="card-body">
+                                <h6 class="title text-danger">04-2024 -
+                                    Present</h6>
+                                <p style="font-weight: 600;">AI engineer at
+                                    EmyeHR</p>
+                                <ul class="job-description">
+                                    <li> Optimized integration between chat
+                                        agents and the Emye bot, focusing on
+                                        prompt quality and cost efficiency.</li>
+                                    <li> Fine-tuned GPT-3.5 for precise and
+                                        efficient SQL generation tailored to
+                                        company data.</li>
+                                    <li> Developed an automatic synthetic data
+                                        generation program using GPT.</li>
+                                    <li> Developed benchmarking systems to
+                                        evaluate agent performance and visualize
+                                        results effectively.</li>
+                                    <li>Conducted R&D on AI-driven systems for
+                                        predicting employee behavioral trends
+                                        and resignation, utilizing online and
+                                        batch machine learning, customized for
+                                        EmyeHR clients’ personal data.</li>
+                                </ul>
+                                <hr>
+                                <h6 class="title text-danger">07/2023 -
+                                    09/2023</h6>
+                                <p style="font-weight: 600;"> Machine learning
+                                    engineering intern</p>
+                                <ul class="job-description">
+                                    <li> Developed an automatic speech
+                                        recognition ai model fine tuned on the
+                                        Tunisian dialect.</li>
+                                    <li>Created a dataset for the ASR model with
+                                        1000+ transcriptions and +1h of
+                                        recordings using multiple data sources,
+                                        cleaning and processing techniques using
+                                        NumPy, OpenCV and TensorFlow</li>
+                                    <li>Developed the infrastructure of the web
+                                        platform for the project using
+                                        terraform, AWS, docker as
+                                        well as other tools for DevOps such as
+                                        bitbucket.</li>
+                                </ul>
+                                <hr>
+                                <h6 class="title text-danger">06/2023 -
+                                    08/2023</h6>
+                                <p style="font-weight: 600;">Mobile development
+                                    intern at Tnker</p>
+                                <ul class="job-description">
+                                    <li>Developed a flutter mobile app prototype
+                                        for voice calling that handles 4 servers
+                                        simultaneously.</li>
+                                    <li>Integrated the voice calling prototype
+                                        as a feature in the final product
+                                        app.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="mt-2">
+                                    <h4>Education</h4>
+                                    <span class="line"></span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h6 class="title text-danger">2019 - 2024</h6>
+                                <p style="font-weight: 600;"> National Institute
+                                    of Applied Science and Technology,
+                                    Tunisia</p>
+                                <ul class="job-description">
+                                    <li>Diploma in Industrial Computing and
+                                        Automation Engineering, specializing in
+                                        Data science.</li>
+                                    <li>Throughout these five years, I had the
+                                        opportunity to learn, practice and
+                                        develop academic projects in machine
+                                        learning and applying them too various
+                                        industries such as robotics.</li></ul>
+                                <hr>
+                                <h6 class="title text-danger">2013 – 2018</h6>
+                                <p style="font-weight: 600;">British council,
+                                    Tunis, Tunisia</p>
+                                <ul class="job-description"><li>Degree: First
+                                        Certificate in English (FCE) with a C1
+                                        level in English</li></ul>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="pull-left">
+                                    <h4 class="mt-2">Current technologies</h4>
+                                    <span class="line"></span>
+                                </div>
+                            </div>
+                            <div class="card-body pb-2">
+                                <div
+                                    class="d-flex flex-wrap justify-content-start align-items-center">
+                                    <!-- Python -->
+                                    <div class="tech-item text-center m-2">
+                                        <img src="assets/imgs/PYTHON.png"
+                                            loading="lazy" alt="Python"
+                                            class="tech-icon">
+                                        <h6 class="mt-2">Python</h6>
+                                    </div>
+                                    <!-- TensorFlow -->
+                                    <div class="tech-item text-center m-2">
+                                        <img src="assets/imgs/TF.png"
+                                            loading="lazy" alt="TensorFlow"
+                                            class="tech-icon">
+                                        <h6 class="mt-2">TensorFlow</h6>
+                                    </div>
+                                    <!-- Pandas -->
+                                    <div class="tech-item text-center m-2">
+                                        <img src="assets/imgs/PANDAS.png"
+                                            loading="lazy" alt="Pandas"
+                                            class="tech-icon">
+                                        <h6 class="mt-2">Pandas</h6>
+                                    </div>
+                                    <!-- NumPy -->
+                                    <div class="tech-item text-center m-2">
+                                        <img src="assets/imgs/NUMPY.png"
+                                            loading="lazy" alt="NumPy"
+                                            class="tech-icon">
+                                        <h6 class="mt-2">Numpy</h6>
+                                    </div>
+                                    <!-- GPT -->
+                                    <div class="tech-item text-center m-2">
+                                        <img src="assets/imgs/GPT.png"
+                                            loading="lazy" alt="GPT"
+                                            class="tech-icon">
+                                        <h6 class="mt-2">GPT</h6>
+                                    </div>
+                                    <!-- KERAS -->
+                                    <div class="tech-item text-center m-2">
+                                        <img src="assets/imgs/K.png"
+                                            loading="lazy" alt="Keras"
+                                            class="tech-icon">
+                                        <h6 class="mt-2">Keras</h6>
+                                    </div>
+                                    <!-- SQL -->
+                                    <div class="tech-item text-center m-2">
+                                        <img src="assets/imgs/PG.png"
+                                            loading="lazy" alt="SQL"
+                                            class="tech-icon">
+                                        <h6 class="mt-2">PostgreSQL</h6>
+                                    </div>
+                                    <!-- C++ -->
+                                    <div class="tech-item text-center m-2">
+                                        <img src="assets/imgs/C.png"
+                                            loading="lazy" alt="C++"
+                                            class="tech-icon">
+                                        <h6 class="mt-2">C++</h6>
+                                    </div>
+                                    <!-- Git -->
+                                    <div class="tech-item text-center m-2">
+                                        <img src="assets/imgs/GIT.png"
+                                            loading="lazy" alt="Git"
+                                            class="tech-icon">
+                                        <h6 class="mt-2">Git</h6>
+                                    </div>
+                                    <!-- Nodejs -->
+                                    <div class="tech-item text-center m-2">
+                                        <img src="assets/imgs/nodejs.png"
+                                            loading="lazy" alt="JavaScript"
+                                            class="tech-icon">
+                                        <h6 class="mt-2">Node.js</h6>
+                                    </div>
+                                    <!-- JavaScript -->
+                                    <div class="tech-item text-center m-2">
+                                        <img src="assets/imgs/JS.png"
+                                            loading="lazy" alt="JavaScript"
+                                            class="tech-icon">
+                                        <h6 class="mt-2">JavaScript</h6>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="pull-left">
+                                    <h4 class="mt-2">Languages</h4>
+                                    <span class="line"></span>
+                                </div>
+                            </div>
+                            <div class="card-body pb-2">
+                                <h6>English</h6>
+                                <div class="progress mb-3">
+                                    <div class="progress-bar bg-danger"
+                                        role="progressbar" style="width: 86%"
+                                        aria-valuenow="25" aria-valuemin="0"
+                                        aria-valuemax="100"></div>
+                                </div>
+                                <h6>French</h6>
+                                <div class="progress mb-3">
+                                    <div class="progress-bar bg-danger"
+                                        role="progressbar" style="width: 56%"
+                                        aria-valuenow="25" aria-valuemin="0"
+                                        aria-valuemax="100"></div>
+                                </div>
+                                <h6>Arabic</h6>
+                                <div class="progress mb-3">
+                                    <div class="progress-bar bg-danger"
+                                        role="progressbar" style="width: 99%"
+                                        aria-valuenow="50" aria-valuemin="0"
+                                        aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section bg-dark text-center">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="row ">
+                            <div
+                                class="col-5 text-right text-light border-right py-3">
+                                <div class="m-auto"><i
+                                        class="ti-alarm-clock icon-xl"></i></div>
+                            </div>
+                            <div class="col-7 text-left py-3">
+                                <h1
+                                    class="text-danger font-weight-bold font40">+1600</h1>
+                                <p class="text-light mb-1">Hours Worked</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="row">
+                            <div
+                                class="col-5 text-right text-light border-right py-3">
+                                <div class="m-auto"><i
+                                        class="ti-layers-alt icon-xl"></i></div>
+                            </div>
+                            <div class="col-7 text-left py-3">
+                                <h1
+                                    class="text-danger font-weight-bold font40">+7</h1>
+                                <p class="text-light mb-1">Project Finished</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="row">
+                            <div
+                                class="col-5 text-right text-light border-right py-3">
+                                <div class="m-auto"><i
+                                        class="ti-face-smile icon-xl"></i></div>
+                            </div>
+                            <div class="col-7 text-left py-3">
+                                <h1
+                                    class="text-danger font-weight-bold font40">A
+                                    lot</h1>
+                                <p class="text-light mb-1">Happy employers</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="row">
+                            <div
+                                class="col-5 text-right text-light border-right py-3">
+                                <div class="m-auto"><i
+                                        class="ti-heart-broken icon-xl"></i></div>
+                            </div>
+                            <div class="col-7 text-left py-3">
+                                <h1
+                                    class="text-danger font-weight-bold font40">3k</h1>
+                                <p class="text-light mb-1">Coffee Drunk</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section bg-dark py-5">
+            <div class="container text-center">
+                <h2 class="text-light mb-5 font-weight-normal">I Am Available
+                    For an interview</h2>
+                <a href="https://www.linkedin.com/in/omar-bradai-a058211a5/"
+                    class="btn bg-primary w-lg" target="_blank">
+                    Hire me </a>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section class="section bg-custom-gray" id="portfolio">
+            <div class="container">
+                <h1 class="mb-5"><span class="text-danger">My</span> AI
+                    Projects</h1>
+
+                <!-- Filters -->
+                <div class="filters mb-4">
+                    <button class="btn btn-outline-primary filter-btn active"
+                        data-filter="all">All</button>
+                    <!-- <button class="btn btn-outline-primary filter-btn" data-filter="ml">Machine Learning</button> -->
+                    <button class="btn btn-outline-primary filter-btn"
+                        data-filter="nlp">Natural Language Processing</button>
+                    <!-- <button class="btn btn-outline-primary filter-btn" data-filter="gpt">GPT</button> -->
+                    <button class="btn btn-outline-primary filter-btn"
+                        data-filter="ex">Academic projects</button>
+                </div>
+
+                <div class="portfolio">
+                    <div class="portfolio-container row">
+                        <!-- Project card 3 -->
+                        <div class="col-md-6 col-lg-4 project-card"
+                            data-category="nlp">
+                            <div class="card mb-4">
+                                <img src="assets/imgs/asr.jpg" loading='lazy'
+                                    class="card-img-top"
+                                    alt="Speech to text ai model">
+                                <div class="card-body">
+                                    <h5 class="card-title">Tunisian ASR
+                                        model</h5>
+                                    <p class="card-text">Speech to text ai model
+                                        for
+                                        Tunisian Derja (dialect).</p>
+                                    <div class="tech-tags">
+                                        <span
+                                            class="badge badge-info">Python</span>
+                                        <span
+                                            class="badge badge-info">ASR</span>
+                                        <span class="badge badge-info">Natural
+                                            language processing</span>
+                                    </div>
+                                    <button
+                                        class="btn btn-primary mt-3 view-details"
+                                        data-title="Tunisian derja ASR model"
+                                        data-description="<div class='container'>
     <!-- ASR Model for Tunisian Derja Dialect Section -->
     <div class='section' id='tunisian-asr-model'>
         <div class='section-header'>
@@ -527,23 +675,38 @@ well as other tools for DevOps such as bitbucket.</li>
     }
 </style>
 " data-image="assets/imgs/asr.jpg">View Details</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project card 4 -->
-                <div class="col-md-6 col-lg-4 project-card" data-category="ex">
-                    <div class="card mb-4">
-                        <img src="assets/imgs/fc.jpg" loading='lazy'  class="card-img-top" alt="automatic parking garage door">
-                        <div class="card-body">
-                            <h5 class="card-title">Automatic Parking Garage Door with Facial Recognition</h5>
-                            <p class="card-text">Combining AI and electronics to simulate an automatic parking garage door</p>
-                            <div class="tech-tags">
-                                <span class="badge badge-info">Python</span>
-                                <span class="badge badge-info">Facial recognition</span>
-                                <span class="badge badge-info">Arduino</span>
-                                <span class="badge badge-info">IOT</span>
+                                </div>
                             </div>
-                            <button class="btn btn-primary mt-3 view-details" data-title="Automatic Parking Garage Door with Facial Recognition" data-description="<div class='project-modal-content'>
+                        </div>
+                        <!-- Project card 4 -->
+                        <div class="col-md-6 col-lg-4 project-card"
+                            data-category="ex">
+                            <div class="card mb-4">
+                                <img src="assets/imgs/fc.jpg" loading='lazy'
+                                    class="card-img-top"
+                                    alt="automatic parking garage door">
+                                <div class="card-body">
+                                    <h5 class="card-title">Automatic Parking
+                                        Garage
+                                        Door with Facial Recognition</h5>
+                                    <p class="card-text">Combining AI and
+                                        electronics to simulate an automatic
+                                        parking
+                                        garage door</p>
+                                    <div class="tech-tags">
+                                        <span
+                                            class="badge badge-info">Python</span>
+                                        <span class="badge badge-info">Facial
+                                            recognition</span>
+                                        <span
+                                            class="badge badge-info">Arduino</span>
+                                        <span
+                                            class="badge badge-info">IOT</span>
+                                    </div>
+                                    <button
+                                        class="btn btn-primary mt-3 view-details"
+                                        data-title="Automatic Parking Garage Door with Facial Recognition"
+                                        data-description="<div class='project-modal-content'>
     <div class='container'>
         <!-- Project Overview Section -->
         <div class='section' id='project-overview'>
@@ -646,22 +809,33 @@ well as other tools for DevOps such as bitbucket.</li>
     }
 </style>
 " data-image="assets/imgs/fc.jpg">View Details</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project card 5 -->
-                <div class="col-md-6 col-lg-4 project-card" data-category="ex">
-                    <div class="card mb-4">
-                        <img src="assets/imgs/ocr.jpg"  loading='lazy' class="card-img-top" alt="Tunisian ID Card OCR System with Flutter & Python">
-                        <div class="card-body">
-                            <h5 class="card-title">Tunisian ID Card OCR System with Flutter & Python</h5>
-                            <p class="card-text">Extracting data from Tunisian ID cards</p>
-                            <div class="tech-tags">
-                                <span class="badge badge-info">Python</span>
-                                <span class="badge badge-info">OCR</span>
-                                <span class="badge badge-info">Flutter</span>
+                                </div>
                             </div>
-                            <button class="btn btn-primary mt-3 view-details" data-title="Tunisian ID Card OCR System" data-description="<div class='project-modal-content'>
+                        </div>
+                        <!-- Project card 5 -->
+                        <div class="col-md-6 col-lg-4 project-card"
+                            data-category="ex">
+                            <div class="card mb-4">
+                                <img src="assets/imgs/ocr.jpg" loading='lazy'
+                                    class="card-img-top"
+                                    alt="Tunisian ID Card OCR System with Flutter & Python">
+                                <div class="card-body">
+                                    <h5 class="card-title">Tunisian ID Card OCR
+                                        System with Flutter & Python</h5>
+                                    <p class="card-text">Extracting data from
+                                        Tunisian ID cards</p>
+                                    <div class="tech-tags">
+                                        <span
+                                            class="badge badge-info">Python</span>
+                                        <span
+                                            class="badge badge-info">OCR</span>
+                                        <span
+                                            class="badge badge-info">Flutter</span>
+                                    </div>
+                                    <button
+                                        class="btn btn-primary mt-3 view-details"
+                                        data-title="Tunisian ID Card OCR System"
+                                        data-description="<div class='project-modal-content'>
     <div class='container'>
         <!-- Project Overview Section -->
         <div class='section' id='project-overview'>
@@ -779,24 +953,38 @@ well as other tools for DevOps such as bitbucket.</li>
 </style>
 
 " data-image="assets/imgs/ocr.jpg">View Details</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project card 6 -->
-                <div class="col-md-6 col-lg-4 project-card" data-category="ex">
-                    <div class="card mb-4">
-                        <img src="assets/imgs/synai.jpg"  loading='lazy' class="card-img-top" alt="SynAI Writing Assistant">
-                        <div class="card-body">
-                            <h5 class="card-title">SynAI Writing Assistant</h5>
-                            <p class="card-text">A google docs extension for writing assistance</p>
-                            <div class="tech-tags">
-                                <span class="badge badge-info">JavaScript</span>
-                                <span class="badge badge-info">HTML</span>
-                                <span class="badge badge-info">CSS</span>
-                                <span class="badge badge-info">Python</span>
-                                <span class="badge badge-info">LLM</span>
+                                </div>
                             </div>
-                            <button class="btn btn-primary mt-3 view-details" data-title="SynAI Writing Assistant" data-description="<div class='project-modal-content'>
+                        </div>
+                        <!-- Project card 6 -->
+                        <div class="col-md-6 col-lg-4 project-card"
+                            data-category="ex">
+                            <div class="card mb-4">
+                                <img src="assets/imgs/synai.jpg" loading='lazy'
+                                    class="card-img-top"
+                                    alt="SynAI Writing Assistant">
+                                <div class="card-body">
+                                    <h5 class="card-title">SynAI Writing
+                                        Assistant</h5>
+                                    <p class="card-text">A google docs extension
+                                        for
+                                        writing assistance</p>
+                                    <div class="tech-tags">
+                                        <span
+                                            class="badge badge-info">JavaScript</span>
+                                        <span
+                                            class="badge badge-info">HTML</span>
+                                        <span
+                                            class="badge badge-info">CSS</span>
+                                        <span
+                                            class="badge badge-info">Python</span>
+                                        <span
+                                            class="badge badge-info">LLM</span>
+                                    </div>
+                                    <button
+                                        class="btn btn-primary mt-3 view-details"
+                                        data-title="SynAI Writing Assistant"
+                                        data-description="<div class='project-modal-content'>
     <div class='container'>
 
         <!-- Project Overview Section -->
@@ -931,112 +1119,135 @@ well as other tools for DevOps such as bitbucket.</li>
     }
 </style>
 " data-image="assets/imgs/synai.jpg">View Details</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>            
-</section>
-<!-- End of portfolio section -->
+        </section>
+        <!-- End of portfolio section -->
 
-
-
-
-
-<!-- Full-Page Modal Structure -->
-<div class="modal fade" id="projectModal" tabindex="-1" role="dialog" aria-labelledby="projectModalLabel" >
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="projectModalLabel"></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span >&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <img src="" id="modalMainImage" class="img-fluid mb-3" alt="">
-                <p id="modalDescription"></p>
-
-              <!-- Go Back Button -->
-<button type="button" class="btn btn-custom mt-3" data-dismiss="modal">
-  <i class="ti-arrow-circle-left"></i>   &nbsp &nbsp Go Back
-</button>
-
-            </div>
-        </div>
-    </div>
-</div>
-
-
-    
-
-    <div class="section contact" id="contact">
-        <div id="map" class="map"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="contact-form-card">
-                        <h4 class="contact-title">Send a message</h4>
-                        <form id="contact-form">
-                            <div class="form-group">
-                                <input name="name" class="form-control" type="text" placeholder="Name *" required>
-                            </div>
-                            <div class="form-group">
-                                <input name="email" class="form-control" type="email" placeholder="Email *" required>
-                            </div>
-                            <div class="form-group">
-                               <textarea name="message" class="form-control" placeholder="Message *" rows="7" required></textarea>
-                            </div>
-                            <div class="form-group ">
-                                <button type="submit" class="form-control btn btn-primary" >Send Message</button>
-                            </div>
-                        </form>
+        <!-- Full-Page Modal Structure -->
+        <div class="modal fade" id="projectModal" tabindex="-1" role="dialog"
+            aria-labelledby="projectModalLabel">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="projectModalLabel"></h5>
+                        <button type="button" class="close" data-dismiss="modal"
+                            aria-label="Close">
+                            <span>&times;</span>
+                        </button>
                     </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="contact-info-card">
-                        <h4 class="contact-title">Get in touch</h4>
-                        <div class="row mb-2">
-                            <div class="col-1 pt-1 mr-1">
-                                <i class="ti-mobile icon-md"></i>
-                            </div>
-                            <div class="col-10 ">
-                                <h6 class="d-inline">Phone : <br> <span class="text-muted">+ (216) 20 681 965</span></h6>
-                            </div>
-                        </div>
-                        <div class="row mb-2">
-                            <div class="col-1 pt-1 mr-1">
-                                <i class="ti-map-alt icon-md"></i>
-                            </div>
-                            <div class="col-10">
-                                <h6 class="d-inline">Address :<br> <span class="text-muted">2074 El mourouj3, Ben arouss, Tunisia.</span></h6>
-                            </div>
-                        </div>
-                        <div class="row mb-2">
-                            <div class="col-1 pt-1 mr-1">
-                                <i class="ti-envelope icon-md"></i>
-                            </div>
-                            <div class="col-10">
-                                <h6 class="d-inline">Email :<br> <span class="text-muted">omarbradai142@gmail.com</span></h6>
-                            </div>
-                        </div>
-                        <ul class="social-icons pt-4">
-                            <li class="social-item"><a class="social-link text-dark" href="https://www.facebook.com/omar.bradai.3/"  target="_blank"><i class="ti-facebook" aria-hidden="true"></i></a></li>
-                           <li class="social-item">
-  <a class="social-link text-dark" href="mailto:?to=example@domain.com&cc=omarbradai142@gmail.com&subject=Hello&body=This%20is%20the%20message%20body" target="_blank">
-    <i class="ti-google" aria-hidden="true"></i>
-  </a>
-</li>
-                            <li class="social-item"><a class="social-link text-dark" href="https://www.linkedin.com/in/omar-bradai-a058211a5/"  target="_blank"><i class="ti-linkedin" aria-hidden="true"></i></a></li>
-                        </ul> 
+                    <div class="modal-body">
+                        <img src id="modalMainImage" class="img-fluid mb-3" alt>
+                        <p id="modalDescription"></p>
+
+                        <!-- Go Back Button -->
+                        <button type="button" class="btn btn-custom mt-3"
+                            data-dismiss="modal">
+                            <i class="ti-arrow-circle-left"></i> &nbsp &nbsp Go
+                            Back
+                        </button>
+
                     </div>
                 </div>
             </div>
-
         </div>
-         <!-- Import Map for three.js -->
-  <script type="importmap">
+
+        <div class="section contact" id="contact">
+            <div id="map" class="map"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="contact-form-card">
+                            <h4 class="contact-title">Send a message</h4>
+                            <form id="contact-form">
+                                <div class="form-group">
+                                    <input name="name" class="form-control"
+                                        type="text" placeholder="Name *"
+                                        required>
+                                </div>
+                                <div class="form-group">
+                                    <input name="email" class="form-control"
+                                        type="email" placeholder="Email *"
+                                        required>
+                                </div>
+                                <div class="form-group">
+                                    <textarea name="message"
+                                        class="form-control"
+                                        placeholder="Message *" rows="7"
+                                        required></textarea>
+                                </div>
+                                <div class="form-group ">
+                                    <button type="submit"
+                                        class="form-control btn btn-primary">Send
+                                        Message</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="contact-info-card">
+                            <h4 class="contact-title">Get in touch</h4>
+                            <div class="row mb-2">
+                                <div class="col-1 pt-1 mr-1">
+                                    <i class="ti-mobile icon-md"></i>
+                                </div>
+                                <div class="col-10 ">
+                                    <h6 class="d-inline">Phone : <br> <span
+                                            class="text-muted">+ (216) 20 681
+                                            965</span></h6>
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-1 pt-1 mr-1">
+                                    <i class="ti-map-alt icon-md"></i>
+                                </div>
+                                <div class="col-10">
+                                    <h6 class="d-inline">Address :<br> <span
+                                            class="text-muted">2074 El mourouj3,
+                                            Ben
+                                            arouss, Tunisia.</span></h6>
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-1 pt-1 mr-1">
+                                    <i class="ti-envelope icon-md"></i>
+                                </div>
+                                <div class="col-10">
+                                    <h6 class="d-inline">Email :<br> <span
+                                            class="text-muted">omarbradai142@gmail.com</span></h6>
+                                </div>
+                            </div>
+                            <ul class="social-icons pt-4">
+                                <li class="social-item"><a
+                                        class="social-link text-dark"
+                                        href="https://www.facebook.com/omar.bradai.3/"
+                                        target="_blank"><i class="ti-facebook"
+                                            aria-hidden="true"></i></a></li>
+                                <li class="social-item">
+                                    <a class="social-link text-dark"
+                                        href="mailto:?to=example@domain.com&cc=omarbradai142@gmail.com&subject=Hello&body=This%20is%20the%20message%20body"
+                                        target="_blank">
+                                        <i class="ti-google"
+                                            aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li class="social-item"><a
+                                        class="social-link text-dark"
+                                        href="https://www.linkedin.com/in/omar-bradai-a058211a5/"
+                                        target="_blank"><i class="ti-linkedin"
+                                            aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Import Map for three.js -->
+            <script type="importmap">
     {
       "imports": {
         "three": "https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.module.js",
@@ -1044,89 +1255,106 @@ well as other tools for DevOps such as bitbucket.</li>
       }
     }
   </script>
-     <!-- Hover icon to trigger robot -->
- <div id="hover-icon" class="hover-icon">
-  <img src="assets/imgs/robot.png" loading='lazy'  alt="AI Icon" width="50" height="50" />
-</div>
+            <!-- Hover icon to trigger robot -->
+            <div id="hover-icon" class="hover-icon">
+                <img src="assets/imgs/robot.png" loading='lazy' alt="AI Icon"
+                    width="50" height="50" />
+            </div>
 
-  <!-- 3D Robot Container -->
-  <!-- Add this container to hold the 3D robot -->
-<div id="robot-container" style="position: fixed; top: 50%; left: 80%; transform: translate(-50%, -50%); z-index: 9998; pointer-events: none;">
-  <div id="container"></div> <!-- This is where your Three.js renderer will go -->
-</div>
-<div id="message-bubble" class="message-bubble">
-</div>
+            <!-- 3D Robot Container -->
+            <!-- Add this container to hold the 3D robot -->
+            <div id="robot-container"
+                style="position: fixed; top: 50%; left: 80%; transform: translate(-50%, -50%); z-index: 9998; pointer-events: none;">
+                <div id="container"></div>
+                <!-- This is where your Three.js renderer will go -->
+            </div>
+            <div id="message-bubble" class="message-bubble">
+            </div>
 
- <!-- Chat Box -->
-<div id="robot-chat-box" class="robot-chat-box">
-  <div class="chat-header">
-    <span class="chat-title">Chat with SynAI</span>
-   
-     <!-- Close button (down arrow) -->
-  <button id="close-m" class="close-btn" onclick="closeChatBox()">
-    <i class="ti-angle-double-down"></i>
-  </button>
-  <!-- Open button (up arrow) -->
-  <button id="open-m" class="open-btn" onclick="openChatBox()">
-    <i class="ti-angle-double-up"></i>
-  </div>
-  <div class="chat-body">
-    <div id="chat-messages" class="chat-messages">
-      <!-- Chat messages will dynamically appear here -->
-    </div>
-  </div>
-  <div id= "chat-field" class="chat-footer">
-    <input 
-      type="text" 
-      id="user-message" 
-      class="chat-input" 
-      placeholder="E.g : Who is omar?" 
-      aria-label="Type your message"
-    />
-    <div id="play" class="play-button"> 
-        <button id="send-message" class="send-btn">Send</button>
-        <button id="stop-message" class="stop-btn" style="display: none;">Stop</button>
-        <div id="loading-button">
-            <div class="loader-button"></div>
-        </div>
-    </div>
-    <!-- Suggestions Button -->
-    <button id="suggestions-btn" class="suggestions-btn">Suggestions</button>
-    
-    <!-- Suggested Messages List (Initially hidden) -->
-    <div id="suggestions-list" class="suggestions-list" style="display: none;">
-      <ul>
-        <li class="suggestion-item" data-suggestion="Who is Omar?">Who is Omar?</li>
-        <li class="suggestion-item" data-suggestion="Tell me about SynAI project.">Tell me about SynAI project.</li>
-        <li class="suggestion-item" data-suggestion="Where does Omar currently work?">Where does Omar currently work?</li>
-        <li class="suggestion-item" data-suggestion="Walk me through the resume?">Walk me through the resume?</li>
-      </ul>
-    </div>
-  </div>
-</div>
+            <!-- Chat Box -->
+            <div id="robot-chat-box" class="robot-chat-box">
+                <div class="chat-header">
+                    <span class="chat-title">Chat with SynAI</span>
 
-    <footer class="footer py-3">
-        <div class="container">
-            
-        </div>
-    </footer>
-<!-- core  -->
+                    <!-- Close button (down arrow) -->
+                    <button id="close-m" class="close-btn"
+                        onclick="closeChatBox()">
+                        <i class="ti-angle-double-down"></i>
+                    </button>
+                    <!-- Open button (up arrow) -->
+                    <button id="open-m" class="open-btn"
+                        onclick="openChatBox()">
+                        <i class="ti-angle-double-up"></i>
+                    </div>
+                    <div class="chat-body">
+                        <div id="chat-messages" class="chat-messages">
+                            <!-- Chat messages will dynamically appear here -->
+                        </div>
+                    </div>
+                    <div id="chat-field" class="chat-footer">
+                        <input
+                            type="text"
+                            id="user-message"
+                            class="chat-input"
+                            placeholder="E.g : Who is omar?"
+                            aria-label="Type your message" />
+                        <div id="play" class="play-button">
+                            <button id="send-message"
+                                class="send-btn">Send</button>
+                            <button id="stop-message" class="stop-btn"
+                                style="display: none;">Stop</button>
+                            <div id="loading-button">
+                                <div class="loader-button"></div>
+                            </div>
+                        </div>
+                        <!-- Suggestions Button -->
+                        <button id="suggestions-btn"
+                            class="suggestions-btn">Suggestions</button>
 
-<!-- jQuery -->
- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                        <!-- Suggested Messages List (Initially hidden) -->
+                        <div id="suggestions-list" class="suggestions-list"
+                            style="display: none;">
+                            <ul>
+                                <li class="suggestion-item"
+                                    data-suggestion="Who is Omar?">Who is
+                                    Omar?</li>
+                                <li class="suggestion-item"
+                                    data-suggestion="Tell me about SynAI project.">Tell
+                                    me about SynAI project.</li>
+                                <li class="suggestion-item"
+                                    data-suggestion="Where does Omar currently work?">Where
+                                    does Omar currently work?</li>
+                                <li class="suggestion-item"
+                                    data-suggestion="Walk me through the resume?">Walk
+                                    me through the resume?</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-<!-- Popper.js (Required for Bootstrap's dropdowns and tooltips) -->
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+                <footer class="footer py-3">
+                    <div class="container">
 
-<!-- Bootstrap JS -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+                    </div>
+                </footer>
+                <!-- core  -->
 
+                <!-- jQuery -->
+                <script
+                    src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<!-- portfolio js (Your custom script) -->
-<script src="assets/js/portfoliojs.js"></script>
-<script type="module" src="assets/js/robot.js"></script>
-<script type="module" src="assets/js/robot.js"></script>
+                <!-- Popper.js (Required for Bootstrap's dropdowns and tooltips) -->
+                <script
+                    src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 
+                <!-- Bootstrap JS -->
+                <script
+                    src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-</body>
-</html>
+                <!-- portfolio js (Your custom script) -->
+                <script src="assets/js/portfoliojs.js"></script>
+                <script type="module" src="assets/js/robot.js"></script>
+                <script type="module" src="assets/js/robot.js"></script>
+
+            </body>
+        </html>
