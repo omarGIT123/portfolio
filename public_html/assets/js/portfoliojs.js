@@ -229,12 +229,14 @@ async function trackAndNotify() {
     const templateParams = {
       user_ip: ipAddress,
     };
-
+  console.log(templateParams)
     emailjs
       .send(serviceID, templateID, templateParams)
-      .then((result) => {})
-      .catch((error) => {});
-  } catch (error) {}
+      .then((result) => {console.log(result)})
+      .catch((error) => {console.log(error)});
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 // Call the function when the page loads
