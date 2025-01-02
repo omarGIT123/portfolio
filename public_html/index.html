@@ -509,9 +509,12 @@
                     <!-- <button class="btn btn-outline-primary filter-btn" data-filter="ml">Machine Learning</button> -->
                     <button class="btn btn-outline-primary filter-btn"
                         data-filter="nlp">Natural Language Processing</button>
+                        <button class="btn btn-outline-primary filter-btn"
+                        data-filter="ml">Machine learning</button>
                     <!-- <button class="btn btn-outline-primary filter-btn" data-filter="gpt">GPT</button> -->
                     <button class="btn btn-outline-primary filter-btn"
                         data-filter="ex">Academic projects</button>
+                        
                 </div>
 
                 <div class="portfolio">
@@ -1122,6 +1125,159 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-6 col-lg-4 project-card"
+                        data-category="ml">
+                        <div class="card mb-4">
+                            <img src="assets/imgs/caps/9.jpg" loading='lazy'
+                                class="card-img-top"
+                                alt="SynAI Writing Assistant">
+                            <div class="card-body">
+                                <h5 class="card-title">Gaze screen tracker
+                                    Assistant</h5>
+                                <p class="card-text">Real-Time Gaze Coordinate Tracking System</p>
+                                <div class="tech-tags">
+                                    <span
+                                        class="badge badge-info">Python</span>
+                                    <span
+                                        class="badge badge-info">Sklearn</span>
+                                    <span
+                                        class="badge badge-info">Pytorch</span>
+                                    <span
+                                        class="badge badge-info">ML</span>
+                                    <span
+                                        class="badge badge-info">Data processing</span>
+                                </div>
+                                <button
+                                    class="btn btn-primary mt-3 view-details"
+                                    data-title="Real-Time Gaze Coordinate Tracking System"
+                                    data-description="<div class='project-modal-content'>
+                                        <div class='container'>
+                                        
+                                            <!-- Project Overview Section -->
+                                            <div class='section' id='project-overview'>
+                                                <div class='section-header'>
+                                                    <i class='fas fa-lightbulb'></i>
+                                                    <h2>GazeTrack - Real-Time Gaze Coordinate Tracking System</h2>
+                                                </div>
+                                                <p>GazeTrack is a powerful system designed for real-time gaze coordinate tracking. It uses a combination of data generation techniques and machine learning to track eye positions and predict gaze coordinates accurately. The system employs a simple, time-saving data generation script that automates the collection and augmentation of gaze data.</p>
+                                            </div>
+                                        
+                                            <!-- History & Adaptive Learning Section -->
+                                            <div class='section history-learning'>
+                                                <div class='section-header'>
+                                                    <i class='fas fa-database'></i>
+                                                    <h2>Data Generation & Augmentation Workflow</h2>
+                                                </div>
+                                                <p>The data generation script follows a simple yet efficient workflow:</p>
+                                                <ul class='component-list'>
+                                                    <li><i class='fas fa-check-circle'></i> <strong>Gaze & Click:</strong> Gaze at a position on the black screen and click using the mouse. The system registers the relative gaze coordinates.</li>
+                                                    <li><i class='fas fa-check-circle'></i> <strong>Image Capture:</strong> The webcam captures the frame, and you can crop it to focus on the eyes.</li>
+                                                    <li><i class='fas fa-check-circle'></i> <strong>Image & JSON File Saving:</strong> Saves both the full image and cropped eye image, while also storing the gaze coordinates and image paths in a JSON file.</li>
+                                                    <li><i class='fas fa-check-circle'></i> <strong>Data Augmentation:</strong> Brightness, contrast, and sharpening transformations are applied to the images, generating additional training data.</li>
+                                                </ul>
+                                                <p style='border: 2px solid #4CAF50; background-color: #e9f7ef; padding: 10px; border-radius: 5px;'>
+                                                    <strong>This system has allowed for the accumulation of approximately 10,000 data points, forming a rich dataset for training and model evaluation.</strong>
+                                                </p>
+                                                
+                                            </div>
+                                        
+                                            <!-- Workflow Section -->
+                                            <ul class='workflow-steps'>
+                                                <li><i class='fas fa-arrow-right'></i> <strong>Step 1: Data Collection:</strong> Gaze at a point on the black screen and click with the mouse to capture the coordinates.</li>
+                                                <li><i class='fas fa-arrow-right'></i> <strong>Step 2: Image Capture & Cropping:</strong> Capture a frame from the webcam and crop it to focus on the eyes.</li>
+                                                <figure>
+                                                    <img src='assets/imgs/caps/1.png' loading='lazy' alt='Image capturing and cropping' />
+                                                    <figcaption style='text-align: center; font-style: italic; color: #555; margin-top: 8px;'>Image capturing and cropping</figcaption>
+                                                </figure>
+                                                <figure>
+                                                    <img src='assets/imgs/caps/2.png' loading='lazy' alt='Saving click coordinates' />
+                                                    <figcaption style='text-align: center; font-style: italic; color: #555; margin-top: 8px;'>Saving click coordinates</figcaption>
+                                                </figure>
+                                                <li><i class='fas fa-arrow-right'></i> <strong>Step 3: Data Augmentation:</strong> Apply transformations to create augmented data (brightness, contrast, and sharpness adjustments).</li>
+                                               
+                                                <li><i class='fas fa-arrow-right'></i> <strong>Step 4: Dataset Saving:</strong> Save the full image, cropped image, and gaze coordinates in a structured format (JSON file).</li>
+                                                <li><i class='fas fa-arrow-right'></i> <strong>Step 5: Model Training:</strong> Train a Vision Transformer model using PyTorch and evaluate its performance.</li>
+                                                <figure>
+                                                    <img src='assets/imgs/caps/6.png' loading='lazy' alt='Testing model' />
+                                                    <figcaption style='text-align: center; font-style: italic; color: #555; margin-top: 8px;'>Testing on training data points shows that the model has efficiently learned how to approximate the gaze location.</figcaption>
+                                                </figure>
+                                                <figure>
+                                                    <img src='assets/imgs/caps/4.png' loading='lazy' alt='Real-time gaze detection' />
+                                                    <figcaption style='text-align: center; font-style: italic; color: #555; margin-top: 8px;'>Testing real-time gaze coordinate detection. The model may not detect the exact point, but it is still close to the position where I am looking.</figcaption>
+                                                </figure>
+                                            </ul>
+                                        
+                                            <!-- Learning Outcomes Section -->
+                                            <div class='section learning-outcomes'>
+                                                <h2 class='section-title'>Learning Outcomes</h2>
+                                                <p>This project provided valuable insights into the creation of gaze tracking systems:</p>
+                                                <ul class='component-list'>
+                                                    <li><i class='fas fa-check-circle'></i> <strong>Data Collection & Augmentation:</strong> Learned how to efficiently collect and augment gaze data for training a machine learning model.</li>
+                                                    <li><i class='fas fa-check-circle'></i> <strong>Automated Workflow:</strong> Developed a simple script to streamline data generation and processing, saving time and effort.</li>
+                                                    <li><i class='fas fa-check-circle'></i> <strong>Model Training with Transfer Learning:</strong> Applied pre-trained models and fine-tuned them for gaze tracking using PyTorch.</li>
+                                                    <li><i class='fas fa-check-circle'></i> <strong>Precision Tracking:</strong> Gained experience in using Vision Transformers for predicting gaze coordinates with high precision.</li>
+                                                </ul>
+                                            </div>
+                                        
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- FontAwesome for icons -->
+                                    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css'>
+                                    
+                                    <style>
+                                    .project-modal-content .container {
+                                        max-width: 900px;
+                                        margin: auto;
+                                        background: #fff;
+                                        padding: 20px;
+                                        border-radius: 8px;
+                                        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+                                    }
+                                    
+                                    .project-modal-content .section {
+                                        margin-bottom: 30px;
+                                    }
+                                    
+                                    .project-modal-content .section-header {
+                                        display: flex;
+                                        align-items: center;
+                                        margin-bottom: 10px;
+                                    }
+                                    
+                                    .project-modal-content .section-header i {
+                                        font-size: 24px;
+                                        margin-right: 10px;
+                                        color: #4CAF50;
+                                    }
+                                    
+                                    .project-modal-content .section h2, .project-modal-content .section-title {
+                                        color: #333;
+                                    }
+                                    
+                                    .project-modal-content .component-list, .project-modal-content .workflow-steps {
+                                        padding-left: 20px;
+                                    }
+                                    
+                                    .project-modal-content .component-list li, .project-modal-content .workflow-steps li {
+                                        line-height: 1.6;
+                                    }
+                                    
+                                    .project-modal-content .component-list i, .project-modal-content .workflow-steps i {
+                                        color: #4CAF50;
+                                        margin-right: 8px;
+                                    }
+                                    
+                                    .project-modal-content .learning-outcomes, .project-modal-content .history-learning {
+                                        background-color: #e9f7ef;
+                                        padding: 20px;
+                                        border-radius: 8px;
+                                    }
+                                    </style>                                                               
+" data-image="assets/imgs/caps/9.jpg">View Details</button>
+                            </div>
+                        </div>
+                    </div>
                     </div>
                 </div>
             </div>
